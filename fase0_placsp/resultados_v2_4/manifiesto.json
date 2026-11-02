@@ -1,0 +1,75 @@
+{
+  "generado": "2026-11-01T23:12:10",
+  "programa": {
+    "version": "2.4",
+    "sha256": "e451cae1c78ba4525f1ca796db58c1f8fd4dff3de24624e8c9f7e08103f15294"
+  },
+  "python": "3.13.15",
+  "ficheros": [
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_2023.zip",
+      "bytes": 1668002789,
+      "sha256": "39e7ab384113e8016e69196e0f3a5e20f28b0f19cc16b9e6c1ad6c56d609f493"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_2024.zip",
+      "bytes": 1792750583,
+      "sha256": "2b0bff734c49a423cf34c1d152863963f0ce329f7d8d4b224fa62cd510d6ba43"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_2025.zip",
+      "bytes": 2172595976,
+      "sha256": "3248179d8726dc8a592932c3e895eb2f7adff061a2cb4e217a6c057c02cde325"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202601.zip",
+      "bytes": 158979652,
+      "sha256": "7ce450e8acaeda88bd2c0f0f79193c7ae68d2fbf842dc9634f82bd84a357c796"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202602.zip",
+      "bytes": 167977295,
+      "sha256": "b3414e3c08dae6fd230d980be937aac61d474cda531e2a23c6555e47914bd05e"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202603.zip",
+      "bytes": 194593012,
+      "sha256": "82146676d60a58bbd3041883ddcf35ba09ec2361a7e3085a7af49c959a32e77d"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202604.zip",
+      "bytes": 183076141,
+      "sha256": "0ee7d079f41ac0c130d1fefc6cc01a72b3e1acbfc7ec37d47233bac18ed63ccd"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202605.zip",
+      "bytes": 198346558,
+      "sha256": "318179b51f525a3d70d067c25b7cbe285a618d125599b9a6aa1caa6b9ebe5d79"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202606.zip",
+      "bytes": 215948197,
+      "sha256": "bedeeaa85527fa111b29ad6fb9391523820624b2dac2884599c3c710b700024a"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202607.zip",
+      "bytes": 191755885,
+      "sha256": "30f65786e0d0cf7fe60662257bfb732bf0e09c592c06eeacc9b91a73a8b0f29a"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202608.zip",
+      "bytes": 160085565,
+      "sha256": "8102117be989b4c8289f731281da12f8bd25eb102a403a3bd464f43989e51b05"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202609.zip",
+      "bytes": 302945644,
+      "sha256": "1d3730f0c8c77642f142fbe268ca802cb6af89443e615d8ba2bc68c57dd6d500"
+    },
+    {
+      "nombre": "licitacionesPerfilesContratanteCompleto3_202610.zip",
+      "bytes": 183589197,
+      "sha256": "2df879dc740375141f7d10b72f834fddd44a62a8d3a3351faf625922c549c123"
+    }
+  ]
+}

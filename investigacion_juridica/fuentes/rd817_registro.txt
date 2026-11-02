@@ -1,0 +1,14 @@
+=== Artículo 30 | id a30 | versiones 1 | 20090616 BOE-A-2009-8053
+Artículo 30. Práctica de la valoración.
+1. En los pliegos de cláusulas administrativas particulares deberá constar la identificación del criterio o los criterios concretos que deban someterse a valoración por el comité de expertos o por el organismo especializado, el plazo en que éstos deberán efectuar la valoración y los límites máximo y mínimo en que ésta deberá ser cuantificada.
+2. En todo caso, la valoración de los criterios cuantificables de forma automática se efectuará siempre con posterioridad a la de aquellos cuya cuantificación dependa de un juicio de valor.
+3. La ponderación asignada a los criterios dependientes de un juicio de valor se dará a conocer en el acto público de apertura del resto de la documentación que integre la proposición, salvo que en los pliegos de cláusulas administrativas particulares se disponga otra cosa en cuanto al acto en que deba hacerse pública.
+=== Artículo 31 | id a31 | versiones 1 | 20090616 BOE-A-2009-8053
+Artículo 31. Contenido de las comunicaciones al Registro de Contratos del Sector Público.
+1. Las comunicaciones al Registro de Contratos del Sector Público a que se refiere el artículo 308 de la Ley 30/2007, de 30 de octubre, contendrán los datos básicos de los contratos adjudicados que se establecen en el anexo I de este real decreto.
+2. Los órganos de contratación obligados a efectuar dichas comunicaciones remitirán los datos antes de que finalice el primer trimestre del año siguiente al que corresponda la información de cada ejercicio.
+Para los datos relativos a la adjudicación de los contratos, la fecha de referencia para el cómputo de dicho plazo será la de adjudicación definitiva del contrato. Para los datos relativos a las modificaciones, prórrogas, variaciones de plazos o de precio la fecha de referencia será la de la incidencia respectiva, salvo que se acumulen en una sola comunicación todas las referidas a un mismo contrato, en cuyo caso la fecha de referencia será la de la última incidencia comunicada. Para los datos relativos al importe final y extinción del contrato la fecha de referencia será la de ésta.
+3. Las comunicaciones se efectuarán por medios electrónicos, informáticos o telemáticos, en la forma que determine el Ministro de Economía y Hacienda de conformidad con las comunidades autónomas.
+=== Disposición derogatoria única | id ddunica | versiones 1 | 20090616 BOE-A-2009-8053
+Disposición derogatoria única.
+Quedan derogadas cuantas disposiciones de igual o inferior rango se opongan a lo dispuesto en este real decreto. En particular, quedan derogados los artículos 79, 114 al 117 y los Anexos VII, VIII y IX del Reglamento General de la Ley de Contratos de las Administraciones Públicas, aprobado por Real Decreto 1098/2001, de 12 de octubre.

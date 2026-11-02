@@ -1,0 +1,60 @@
+RD 817/2009 anexo I | versiones 1 | 20090616 BOE-A-2009-8053
+ANEXO I
+Comunicación de datos de contratos para su inscripción en el Registro de Contratos del Sector Público
+I. Datos referidos a la adjudicación del contrato.
+a) Comunes para todos los contratos:
+Tipo de contrato.
+Año del contrato.
+Administración contratante.
+Órgano contratante.
+Código identificador del contrato.
+Lugar de ejecución.
+Objeto del contrato.
+Código CPV del objeto del contrato.
+Contratación por lotes (indicación).
+Contrato mixto (indicación).
+Acuerdo marco (indicación).
+Contrato complementario (indicación).
+Publicidad: Diarios, boletines o medios empleados, y fechas de publicación.
+Tramitación ordinaria, urgente o de emergencia (indicación).
+Procedimiento de tramitación.
+Importes del contrato (de licitación, de adjudicación, anualidades e importes unitarios, en su caso).
+Plazo de ejecución.
+Carácter plurianual.
+Revisión de precios establecida.
+Contratista.
+Fecha de adjudicación.
+Fecha de formalización.
+b) Para los contratos de obras:
+Fórmula o fórmulas de revisión de precios.
+Clasificación exigida.
+c) Para los contratos de concesión de obra pública:
+Aportaciones públicas a la construcción.
+Plazo de la concesión.
+d) Para los contratos de gestión de servicios públicos:
+Modalidad de la contratación, según se establecen en el artículo 253 de la Ley.
+Duración.
+Modalidades que determinan el importe del contrato.
+e) Para los contratos de suministro:
+Tipo de contrato de suministro.
+Precios unitarios (en su caso).
+País de origen de los productos adquiridos.
+f) Para los contratos de servicios:
+Modalidad de determinación del precio.
+Clasificación exigida.
+g) Para los contratos adjudicados por procedimiento negociado:
+Indicación del supuesto de aplicación que amparó el uso del procedimiento.
+Número de invitaciones cursadas.
+II. Datos referidos a las modificaciones, prórrogas, variaciones de plazos o de precio del contrato.
+a) Comunes para todos los contratos:
+Código identificador del contrato.
+Importe de la modificación o modificaciones.
+Variación de plazo de ejecución.
+b) Para los contratos de concesión de obra pública:
+Variación del plazo de la concesión.
+c) Para los contratos de gestión de servicios públicos:
+Variación del plazo de duración.
+III. Datos referidos al importe final y extinción del contrato:
+Importe final del contrato por todos los conceptos, referido al momento de su conclusión.
+Causa de resolución (en su caso).
+Fecha de resolución (en su caso).

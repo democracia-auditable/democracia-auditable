@@ -1,0 +1,7 @@
+# Ficheros de trabajo derivados de las resoluciones: nombran administraciones reclamadas. No se publican.
+resoluciones.csv
+ejecucion_candidatas.csv
+indice_pdf.csv
+datos_autonomicos/
+candidatas_autonomicas.jsonl
+__pycache__/

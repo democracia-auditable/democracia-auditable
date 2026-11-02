@@ -1,0 +1,26 @@
+RECLAMACIÓN POR SILENCIO EN UNA SOLICITUD DE ACCESO A INFORMACIÓN PÚBLICA
+(artículo 24 de la Ley 19/2013, de 9 de diciembre)
+
+Órgano de garantía: [verificar antes de presentar: Consejo de Transparencia y Buen Gobierno, directamente o por convenio, u órgano autonómico competente; la columna «garante» de las herramientas es solo una sugerencia]
+
+Órgano requerido: {organo}
+Fecha de presentación de la solicitud: [fecha]
+Número de registro o referencia de la solicitud: [referencia]
+Plazo de resolución vencido el: [un mes desde la recepción de la solicitud por el órgano competente, o dos si se notificó una ampliación (artículo 20.1); si el último día era inhábil, el siguiente hábil (artículo 30.5 de la Ley 39/2015). Verificar antes de presentar]
+
+Información solicitada: copia del acta de recepción y de la certificación final del contrato de obras «{titulo}» (expediente {expediente}; {enlace}) o, si las obras no se han recibido, indicación de ello y copia, si existen, del acuerdo de resolución, del último acuerdo de suspensión o de ampliación de plazo y del acta de comprobación del replanteo.
+
+Hechos:
+1. En la fecha indicada se presentó la solicitud que se adjunta.
+2. Ha transcurrido el plazo máximo de resolución del artículo 20.1 sin que se haya notificado resolución, por lo que la solicitud se entiende desestimada (artículo 20.4).
+
+Fundamentos:
+- Los documentos solicitados son información pública en el sentido del artículo 13 de la Ley 19/2013. Si las obras se han recibido, debe existir el acta de recepción (artículo 243.2 de la Ley 9/2017), y el Consejo de Transparencia y Buen Gobierno ha reconocido el «carácter eminentemente público» de este documento (R CTBG 2024-0107).
+- No se ha invocado ninguna causa de inadmisión (artículo 18) ni ningún límite (artículos 14 y 15).
+
+Solicito que se estime la reclamación y se inste al órgano requerido a facilitar la información solicitada.
+
+Documentos que se adjuntan: copia de la solicitud y justificante de su presentación.
+
+[Lugar y fecha]
+[Identificación del reclamante y dirección electrónica para notificaciones]

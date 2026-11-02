@@ -1,0 +1,32 @@
+SOLICITUD DE ACCESO A INFORMACIÓN PÚBLICA
+(Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno)
+
+Destinatario: {organo}
+
+Contrato de obras: «{titulo}»
+Expediente: {expediente}
+Publicado en la Plataforma de Contratación del Sector Público: {enlace}
+
+Al amparo de los artículos 12, 13 y 17 de la Ley 19/2013, solicito copia, preferentemente en formato electrónico (artículo 22.1), de los siguientes documentos de este expediente, si ya existen:
+
+1. El acta de recepción de las obras (artículo 243.2 de la Ley 9/2017, de Contratos del Sector Público) o, si se recibieron por partes o por lotes, las actas correspondientes.
+
+2. La certificación final de las obras aprobada por el órgano de contratación (artículo 243.1 de la Ley 9/2017).
+
+Si las obras todavía no se han recibido, solicito que así se indique y, en ese caso, copia de los documentos siguientes que existan a la fecha de esta solicitud, por este orden y solo los que existan:
+
+  a) el acuerdo de resolución del contrato, si se ha resuelto;
+  b) el último acuerdo de suspensión de las obras o de ampliación de su plazo de ejecución, si lo hay;
+  c) el acta de comprobación del replanteo (artículo 237 de la Ley 9/2017).
+
+No solicito certificaciones periódicas de obra ni otros documentos.
+
+Precisiones:
+- No se pide ninguna elaboración de información: basta con copia de los documentos tal como existen.
+- Pueden disociarse los datos personales que contengan (artículo 15.4 de la Ley 19/2013). Acepto un acceso parcial si alguna parte estuviera afectada por un límite legal.
+- Si los documentos no obran en poder de ese órgano, solicito que se remita la solicitud al competente y se me informe de ello (artículo 19.1).
+
+Finalidad (artículo 17.3, a título informativo): esta solicitud forma parte de un seguimiento cívico de la ejecución de los contratos de obras cuyo plazo de ejecución previsto ya ha vencido. Esta organización no prevé reiterar una solicitud equivalente sobre este expediente. Los datos de la respuesta (fechas, existencia o no de los documentos y su resultado) se publicarán por expediente, sin datos personales.
+
+[Lugar y fecha]
+[Identificación del solicitante y dirección electrónica para notificaciones (artículo 17.2)]

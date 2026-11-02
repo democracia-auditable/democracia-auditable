@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cómo terminaron las obras públicas?</title>
+<style>
+:root { --fondo:#f6f7f9; --papel:#fff; --texto:#1d2733; --suave:#5a6676; --borde:#d9dee5; --acento:#16324f; --aviso:#fff6e0; --aviso-borde:#e2b04a; }
+@media (prefers-color-scheme: dark) {
+  :root { --fondo:#14181d; --papel:#1c2128; --texto:#e6e9ee; --suave:#a3adba; --borde:#323a45; --acento:#9cc3ec; --aviso:#2e2716; --aviso-borde:#8a6a22; }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--fondo); color:var(--texto); font:17px/1.55 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+main { max-width:1000px; margin:0 auto; padding:24px 16px 60px; }
+h1 { font-size:2rem; line-height:1.2; margin:.2em 0 .1em; color:var(--acento); }
+h2 { font-size:1.35rem; margin:0 0 .6em; color:var(--acento); }
+.sub { color:var(--suave); margin:0 0 18px; }
+section { background:var(--papel); border:1px solid var(--borde); border-radius:12px; padding:22px 24px; margin:16px 0; }
+nav.saltos { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0; }
+nav.saltos a { font-size:.92rem; padding:4px 12px; border:1px solid var(--borde); border-radius:999px; text-decoration:none; color:var(--texto); background:var(--papel); }
+.cifra { font-size:4.2rem; font-weight:700; line-height:1; color:var(--acento); margin:4px 0 8px; }
+.frase { font-size:1.25rem; margin:0 0 14px; }
+.barra { display:flex; height:28px; border-radius:6px; overflow:hidden; border:1px solid var(--borde); margin:14px 0 8px; }
+.barra span { display:block; height:100%; }
+.leyenda { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px 20px; font-size:.95rem; }
+.leyenda i, .chip::before { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+.chip { white-space:nowrap; font-weight:600; }
+.chip::before { content:""; background:var(--c); }
+.aviso { background:var(--aviso); border:1px solid var(--aviso-borde); border-radius:10px; padding:14px 18px; }
+.dos { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.dos h3 { margin:.2em 0 .4em; font-size:1.05rem; }
+ul.limpia { padding-left:1.2em; margin:.3em 0; }
+ul.limpia li { margin:.25em 0; }
+table { border-collapse:collapse; width:100%; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--borde); vertical-align:top; }
+th { font-size:.85rem; text-transform:uppercase; letter-spacing:.03em; color:var(--suave); }
+td.num { text-align:right; white-space:nowrap; }
+.controles { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px; align-items:center; }
+.controles input, .controles select { font:inherit; font-size:1rem; padding:7px 10px; border:1px solid var(--borde); border-radius:8px; background:var(--papel); color:var(--texto); }
+.controles input { flex:1 1 260px; }
+#contador { color:var(--suave); font-size:.95rem; margin:0 0 8px; }
+#tabla th[data-orden] { cursor:pointer; }
+#tabla th[data-orden]::after { content:"\00a0↕"; opacity:.4; }
+#tabla .organo { font-size:.95rem; }
+#tabla .exp { color:var(--suave); font-size:.85rem; }
+#tabla .docs { font-size:.85rem; color:var(--suave); margin:.3em 0 0; padding-left:1.1em; }
+#tabla a { white-space:nowrap; }
+.tabla-caja { overflow-x:auto; }
+#mas { margin:12px 0 0; font:inherit; padding:8px 16px; border-radius:8px; border:1px solid var(--borde); background:var(--papel); color:var(--texto); cursor:pointer; }
+a { color:#1f5a96; }
+@media (prefers-color-scheme: dark) { a { color:#8fbdf0; } }
+dl dt { font-weight:700; margin-top:.7em; }
+dl dd { margin:.1em 0 0 0; color:var(--suave); }
+ol li { margin:.35em 0; }
+footer { color:var(--suave); font-size:.85rem; text-align:center; margin-top:28px; }
+@media (max-width:700px) {
+  #tabla thead { display:none; }
+  #tabla tr { display:block; border-bottom:1px solid var(--borde); padding:10px 0; }
+  #tabla td { display:block; border:0; padding:2px 0; text-align:left; }
+  #tabla td.num::before { content:"Presupuesto: "; color:var(--suave); }
+  #tabla td.fin::before { content:"Fin previsto: "; color:var(--suave); }
+}
+@media (max-width:700px) { .dos { grid-template-columns:1fr; } .cifra { font-size:3.2rem; } section { padding:18px 16px; } body { font-size:16px; } }
+@media print { .controles, #mas, nav.saltos { display:none; } body { background:#fff; } section { break-inside:avoid; } }
+</style>
+</head>
+<body>
+<main>
+<h1>¿Cómo terminaron las obras públicas?</h1>
+<p class="sub">Lo que se puede saber, y lo que no, con los datos abiertos de la Plataforma de Contratación del Sector Público.
+Datos hasta el 29/10/2026.</p>
+<nav class="saltos" aria-label="Apartados">
+<a href="#resultado">Resultado</a><a href="#significa">Qué significa</a><a href="#obras">Qué obras</a>
+<a href="#hallazgo">Hallazgo</a><a href="#solidez">¿Es fiable?</a><a href="#lista">La lista de obras</a>
+<a href="#palabras">Palabras</a><a href="#archivos">Archivos</a>
+</nav>
+
+<section id="resultado">
+<h2>El resultado</h2>
+<div class="cifra">97,2 %</div>
+<p class="frase">De las <b>1.593</b> obras públicas que, según su plazo, ya deberían haber terminado,
+en <b>1.549</b> no aparece en los datos públicos ninguna señal de cómo terminaron.
+Solo en <b>44</b> hay un aviso o un documento de final.</p>
+<div class="barra" role="img" aria-label="Reparto de las obras"><span style="width:0.60%;background:#1b7f4b" title="Aviso oficial de finalización: 8"></span><span style="width:2.26%;background:#2f6db5" title="Documento de final: 36"></span><span style="width:0.60%;background:#b7791f" title="Solo señales parciales: 2"></span><span style="width:97.11%;background:#8a94a3" title="Ninguna señal de final: 1.547"></span></div><ul class="leyenda"><li><i style="background:#1b7f4b"></i>Aviso oficial de finalización: <b>8</b></li><li><i style="background:#2f6db5"></i>Documento de final: <b>36</b></li><li><i style="background:#b7791f"></i>Solo señales parciales: <b>2</b></li><li><i style="background:#8a94a3"></i>Ninguna señal de final: <b>1.547</b></li></ul>
+</section>
+
+<section id="significa">
+<h2>Qué significa, y qué no</h2>
+<div class="dos">
+<div><h3>Sí significa</h3>
+<ul class="limpia">
+<li>Que, mirando solo estos datos abiertos, <b>casi nunca se puede saber cómo acabó una obra</b>: si se terminó, cuándo, cuánto costó al final o si se canceló.</li>
+<li>Que la información del final, si existe, <b>no se está publicando en este canal</b> de forma que se pueda encontrar.</li>
+</ul></div>
+<div><h3>No significa</h3>
+<ul class="limpia">
+<li>Que las obras estén sin terminar.</li>
+<li>Que falten los documentos: pueden estar en otro sitio, como el Registro de Contratos del Sector Público o los registros autonómicos.</li>
+<li>Que alguien incumpla ninguna obligación.</li>
+</ul></div>
+</div>
+<p class="aviso">El programa busca <b>avisos, nombres de documentos y notas de las modificaciones</b>; no lee el contenido de los documentos. Es una medición exploratoria
+que no ha revisado ningún jurista ni estadístico. Antes de citar la cifra, lee <code>METODO.md</code> (en la carpeta del programa).</p>
+</section>
+
+<section id="obras">
+<h2>Qué obras se han mirado</h2>
+<ul class="limpia">
+<li>Contratos de <b>obras</b> publicados en la Plataforma de Contratación del Sector Público.</li>
+<li>Adjudicados por primera vez en <b>2023</b>.</li>
+<li>Con un presupuesto de entre <b>1 y 10 millones de euros</b> sin IVA: ni obras pequeñas ni grandes infraestructuras.</li>
+</ul>
+<p>Son <b>1.651</b> obras. De ellas, <b>1.593</b> ya deberían haber terminado según el plazo
+que figura en el contrato, 38 siguen en plazo y en 20 faltan datos para calcularlo.
+El plazo es una <b>estimación</b> (inicio más duración prevista, o la de la última modificación publicada): las ampliaciones no publicadas pueden alargarlo.</p>
+</section>
+
+<section id="hallazgo">
+<h2>El hallazgo: el aviso de finalización ya existe, pero casi no se usa</h2>
+<p>La plataforma permite publicar un <b>«Anuncio de Finalización de Contrato»</b>, con la fecha real en que terminó y el motivo.
+Es justo la información que falta. Entre estas 1.651 obras, solo aparece en <b>8</b>.</p>
+<p>En toda la plataforma, contando todas las obras, se publicaron 88 en 2024, 198 en 2025, 293 en 2026.</p>
+<p>Es decir: no haría falta inventar nada nuevo para saber cómo terminan las obras, sino usar lo que ya existe.</p>
+</section>
+
+<section id="solidez">
+<h2>¿Es fiable la cifra?</h2>
+<p>Se ha repetido el cálculo quitando los casos que podían dar problemas. La cifra apenas cambia:</p>
+<div class="tabla-caja"><table>
+<thead><tr><th>Cálculo</th><th>Obras</th><th>Sin señal de final</th></tr></thead>
+<tbody><tr><td>Todas las obras seleccionadas (cifra principal)</td><td>1.651</td><td><b>97,2 %</b></td></tr><tr><td>Solo obras con un único contrato adjudicado</td><td>1.355</td><td><b>97,1 %</b></td></tr><tr><td>Sin las obras con versiones dudosas en los datos</td><td>1.631</td><td><b>97,2 %</b></td></tr></tbody>
+</table></div>
+<p>Además, 21 obras tienen en los datos dos versiones distintas con la misma fecha y no se puede saber cuál es la buena. Probando todas las combinaciones, la cifra queda entre <b>97,2 %</b> y <b>97,2 %</b>.</p>
+<p>También se revisaron a mano muestras de obras, ficha por ficha, para ver si el programa se dejaba casos. El detalle está en <code>METODO.md</code> (en la carpeta del programa).</p>
+</section>
+
+<section id="lista">
+<h2>La lista de obras</h2>
+<p>Esta versión <b>no incluye la lista de obras</b> con su organismo. El proyecto no publica listas de casos reales:
+una lista así, aunque no juzgue a nadie, permitiría señalar a organismos concretos.</p>
+<p>La lista se puede regenerar en cualquier ordenador: el programa es abierto, los datos son los oficiales y el
+manifiesto guarda sus huellas. Al repetir el análisis se obtiene la lista completa, con buscador y enlace a la ficha
+oficial de cada obra, y con <b>huellas_resultados.json</b> se puede comprobar que los ficheros obtenidos son
+exactamente los mismos que dieron estas cifras.</p>
+</section>
+
+<section id="palabras">
+<h2>Palabras que aparecen</h2>
+<dl>
+<dt>Plataforma de Contratación del Sector Público (PLACSP)</dt><dd>La web del Ministerio de Hacienda donde las administraciones publican sus contratos. Publica sus datos en abierto para descargarlos.</dd>
+<dt>Expediente</dt><dd>Cada contratación, con su número. Una obra puede dividirse en varios lotes y contratos dentro del mismo expediente.</dd>
+<dt>Adjudicación</dt><dd>Cuando la administración decide qué empresa hará la obra.</dd>
+<dt>Presupuesto sin IVA</dt><dd>Lo que la administración preveía gastar, antes de impuestos, al sacar la obra a concurso.</dd>
+<dt>Debería haber terminado</dt><dd>Fecha estimada: inicio de la obra más la duración prevista en el contrato o, si se publicó una modificación que cambia el plazo, la duración de la última publicada. No incluye las ampliaciones que no se publicaron.</dd>
+<dt>Acta de recepción</dt><dd>Documento en el que la administración da por recibida la obra terminada.</dd>
+<dt>Liquidación</dt><dd>Cuenta final de lo que costó la obra.</dd>
+<dt>Certificación final</dt><dd>Medición y valoración de todo lo construido al acabar.</dd>
+<dt>Resolución del contrato</dt><dd>Cuando el contrato se termina antes de tiempo, por ejemplo por incumplimiento.</dd>
+<dt>Nota de una modificación</dt><dd>Texto breve que acompaña al anuncio de una modificación del contrato. Algunos organismos lo usan para comunicar el final («se formaliza la liquidación del contrato»); el programa solo lo cuenta si es una de esas fórmulas.</dd>
+<dt>Anuncio de Finalización de Contrato</dt><dd>Aviso estructurado de la Plataforma con la fecha real de fin y la causa.</dd>
+</dl>
+</section>
+
+<section id="archivos">
+<h2>Archivos de este análisis</h2>
+<ul class="limpia">
+<li><b>informe.html</b>: esta página.</li>
+<li><b>informe.md</b>: el informe técnico completo, con todas las cifras y diagnósticos.</li>
+<li><b>resumen.json</b>: las cifras en formato para programas.</li>
+<li><b>manifiesto.json</b>: huellas de los datos oficiales y del programa usados.</li>
+<li><b>huellas_resultados.json</b>: huellas de los ficheros por expediente que no se publican, para comprobar una repetición.</li>
+</ul>
+</section>
+
+<footer>Programa v2.4 · Sin inteligencia artificial: solo reglas fijas sobre los datos oficiales ·
+Datos: Ministerio de Hacienda, Plataforma de Contratación del Sector Público</footer>
+</main>
+</body>
+</html>

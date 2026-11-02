@@ -1,0 +1,24 @@
+# Datos de la PLACSP y salidas con datos reales (órganos, obras, adjudicatarios): se generan al ejecutar los
+# programas y NO se publican. El proyecto no publica listas de obras con su órgano.
+datos/
+**/datos/
+__pycache__/
+*.pyc
+# Estudio: ficheros por expediente de cualquier ejecución (sus huellas sí se publican en huellas_resultados.json)
+fase0_placsp/resultados*/expedientes_seleccionados.csv
+fase0_placsp/resultados*/candidatos_fin.csv
+fase0_placsp/resultados*/empates_en_seleccion.csv
+fase0_placsp/resultados*/lista_obras.csv
+fase0_placsp/resultados/
+fase0_placsp/revision_manual_*.csv
+# Investigaciones: CSV, JSONL, XML y páginas descargadas
+investigacion_doc_ccn/*.csv
+investigacion_doc_ccn/xml_anuncios/
+investigacion_doc_ccn/ejemplos/
+investigacion_cohortes/*.csv
+investigacion_cohortes/validacion/*.csv
+investigacion_cohortes/validacion/paginas/
+investigacion_registro_vasco/*.csv
+investigacion_registro_vasco/fuentes/
+investigacion_inicio/*.csv
+investigacion_consejo/fuentes/

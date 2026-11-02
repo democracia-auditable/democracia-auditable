@@ -1,0 +1,91 @@
+{
+  "version_programa": "2.4",
+  "ficheros_leidos": 5190,
+  "zips": [
+    "licitacionesPerfilesContratanteCompleto3_2023.zip",
+    "licitacionesPerfilesContratanteCompleto3_2024.zip",
+    "licitacionesPerfilesContratanteCompleto3_2025.zip",
+    "licitacionesPerfilesContratanteCompleto3_202601.zip",
+    "licitacionesPerfilesContratanteCompleto3_202602.zip",
+    "licitacionesPerfilesContratanteCompleto3_202603.zip",
+    "licitacionesPerfilesContratanteCompleto3_202604.zip",
+    "licitacionesPerfilesContratanteCompleto3_202605.zip",
+    "licitacionesPerfilesContratanteCompleto3_202606.zip",
+    "licitacionesPerfilesContratanteCompleto3_202607.zip",
+    "licitacionesPerfilesContratanteCompleto3_202608.zip",
+    "licitacionesPerfilesContratanteCompleto3_202609.zip",
+    "licitacionesPerfilesContratanteCompleto3_202610.zip"
+  ],
+  "entradas_leidas": 2557308,
+  "expedientes_distintos": 667929,
+  "expedientes_con_versiones_empatadas_en_todos_los_datos": 399,
+  "expedientes_de_obras_excluidos_por_borrado": {
+    "ANULADA": 559,
+    "SIN_TIPO": 1
+  },
+  "candidatos_excluidos_por_borrado": {},
+  "expedientes_de_obras_ultima_version": 114761,
+  "expedientes_seleccionados": 1651,
+  "seleccionados_cerrados": 0,
+  "seleccionados_con_varios_resultados_adjudicados": 296,
+  "fin_teorico_anterior_al_corte": 1593,
+  "vencidos_sin_candidato_fin_definitivo": 1549,
+  "vencidos_sin_ningun_candidato_fin": 1547,
+  "seleccionados_con_anuncio_finalizacion": 8,
+  "obras_con_anulacion_de_anuncio_finalizacion": 0,
+  "obras_con_anuncio_finalizacion_por_anio_del_anuncio": {
+    "2024": 88,
+    "2025": 198,
+    "2026": 293
+  },
+  "empates": {
+    "expedientes_empatados_relevantes": 21,
+    "seleccionados_cota_minima": 1631,
+    "seleccionados_cota_maxima": 1652,
+    "titular_cota_minima": "1529/1573 (97.2 %)",
+    "titular_cota_maxima": "1550/1594 (97.2 %)"
+  },
+  "diagnostico_borrados": {
+    "CERRADA": {
+      "refs_distintos": 27075,
+      "con_entrada_leida": 0,
+      "de_obras": 0,
+      "de_obras_con_borrado_posterior_a_su_ultima_version": 0,
+      "de_esos_cumplirian_criterios_sin_exigir_resultado_adjudicado": 0
+    },
+    "ANULADA": {
+      "refs_distintos": 6870,
+      "con_entrada_leida": 6700,
+      "de_obras": 966,
+      "de_obras_con_borrado_posterior_a_su_ultima_version": 559,
+      "de_esos_cumplirian_criterios_sin_exigir_resultado_adjudicado": 0
+    },
+    "SIN_TIPO": {
+      "refs_distintos": 691,
+      "con_entrada_leida": 21,
+      "de_obras": 3,
+      "de_obras_con_borrado_posterior_a_su_ultima_version": 1,
+      "de_esos_cumplirian_criterios_sin_exigir_resultado_adjudicado": 0
+    }
+  },
+  "excluidos_por_codigo_de_resultado": {
+    "3": 141,
+    "4": 29,
+    "5": 7,
+    "3,4": 3,
+    "3,8,9": 3,
+    "3,9": 2,
+    "3,8": 1
+  },
+  "fecha_de_corte_datos": "2026-10-29",
+  "anios_de_actualizacion_en_las_entradas": {
+    "2019": 4542,
+    "2020": 3346,
+    "2021": 4290,
+    "2022": 2200,
+    "2023": 606581,
+    "2024": 632433,
+    "2025": 694148,
+    "2026": 609768
+  }
+}

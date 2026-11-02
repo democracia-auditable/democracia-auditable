@@ -1,0 +1,4126 @@
+--- p1
+     
+ 
+ 
+ 
+ 
+Servicios web de la Plataforma 
+de Contratación del Sector Público 
+para Órganos de Contratación 
+ 
+Descripción funcional 
+ 
+ 
+ 
+ 
+ 
+ 
+Dirección General del Patrimonio del Estado 
+Subdirección General de Coordinación de la Contratación 
+Electrónica 
+Versión: 3.10 
+Fecha: 18/12/2025
+
+--- p2
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de Contratación – 
+Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 2  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+CONTROL DE VERSIONES 
+ 
+Versión Fecha Descripción 
+1.0 25-11-2008  
+1.1 04-02-2009 
+- Se ha añadido el parámetro BuyerProfileID a la petición 
+“GetExpedientState” 
+- Se añade explicación en el apartado sobre los parámetros que 
+permiten asociar un mensaje B2B a su EVL en el apartado “3.1 
+Datos” 
+1.2 06-10-2009 
+- Referencias a otros documentos (apartado 1) 
+- El código cuando el mensaje es OK cambia de PLACE0001 a OK 
+(apartado 4.1) 
+- Puntualizaciones sobre adjudicaciones: (apartado 2.7) 
+- Validación de documentos CODICE (apartado 5.1) ya no existe 
+procedimiento Online mediante scripts  
+- Se indica el mensaje de error en caso de error de validación con 
+el esquema (apartado 5.6) 
+- Nuevos ficheros para describir el Perfil CODICE (apartado 5.1 y 
+Anexo 1) 
+- Cambio en procedimiento de integración (apartado 6) 
+- Nuevo anexo III 
+- Se introduce el concepto de desierto provisionalmente, y 
+desierto definitivamente, dejando el caso de desierto como un caso 
+particular de la adjudicación. 
+- Se eliminan los estados Desierto, Renuncia y Desistimiento, que 
+se asimilan con Resuelto Parcialmente y Resuelto. 
+2.0 1-07-2010 Adaptación del documento para la publicación con la nueva versión de CODICE 2.0, y reorganización de los contenidos. 
+2.1 15-12-2010 
+Incorporación de las modificaciones necesarias para la adaptación a 
+la ley 34/2010: 3.7, 4.2, 5.1.1, 5.2, 5.2.4, 5.8, 5.9, Anexo III 
+Modificación de los apartados 5.3 y 5.6 para reflejar los últimos 
+cambios 
+2.2 13-04-2011 
+Incorporación de nuevas funcionalidades: 
+- Rectificación de anuncios 
+- Cambio de publicador del expediente 
+- Consulta de datos del órgano de contratación 
+- Consulta de datos del expediente 
+- Validación y previsualización de documentos CODICE 
+ 
+Se incluye un resumen de funcionalidades de la Plataforma 
+disponibles por vía sistémica, y a través del portal web 
+ 
+Se añaden detalles sobre el contenido de la cabecera WS-Security 
+2.3 25-06-2012 
+Se divide la anterior versión del documento en tres: Descripción 
+funcional, Documento técnico, y Procedimiento de integración 
+Se añade un apartado sobre los servicios ofrecidos por la 
+Plataforma de Contratación del Estado y los distintos tipos de 
+usuarios 
+--- p3
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de Contratación – 
+Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 3  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Versión Fecha Descripción 
+Se añade una referencia al usuario Administrador B2B del Órgano 
+de Contratación 
+Se eliminan todas las referencias a las leyes 30/2007 y 34/2011, así 
+como a las adjudicaciones provisionales y definitivas. 
+Correcciones de direcciones de correo electrónico  
+2.4  
+Se corrigen erratas. 
+Apartados 3.1.1 y 4 se añade información sobre el usuario con rol 
+Invitado 
+Apartado 5.4.Se corrige el gráfico 
+Se añade la funcionalidad de anulación de anuncios y de 
+documentos generales 
+Se añade una explicación sobre bloqueo de licitaciones en el 
+apartado 4. 
+Se añade una consideración sobre anuncios de 
+adjudicación/formalización de lotes en el apartado 5.7 
+2.5 04-06-2014 
+La funcionalidad de publicación en el BOE está disponible para 
+todos los órganos de contratación (apartado 3.1.3) 
+Se cambia el nombre de Plataforma de Contratación del Estado por 
+Plataforma de Contratación del Sector Público, de acuerdo con la 
+disposición adicional 3ª de la Ley 20/2013 de garantía de unidad de 
+mercado 
+2.6 06-10-2015 
+El administrador del órgano de contratación también dispone de la 
+funcionalidad de publicación.  
+Se añade la funcionalidad publicación de anuncios de modificaciones 
+de contrato. 
+Apartado 4.4. Corregida errata en diagrama de flujos 
+2.7 24-11-2016 
+Adaptaciones de la funcionalidad a las nuevas obligaciones materia 
+de publicidad establecidas por las Directivas de contratación de 
+2014. 
+Se incluye el catálogo de formularios normalizados del DOUE que 
+se pueden publicar a través de la Plataforma. 
+Se modifican los flujos de publicación de anuncios teniendo en 
+cuenta que los anuncios de licitación y formalización se deben 
+publicar primero en el DOUE, o bien esperar 48 horas desde el 
+acuse de recibo para poder publicarlos a nivel nacional. 
+Se completa la lista de servicios de licitación electrónica disponibles 
+en la Plataforma 
+3.0 10-11-2017 
+Se cambia el nombre del documento, que sustituye a 
+“PublicaciónB2B en la Plataforma de Contratación del Sector 
+Público – Descripción funcional” 
+Se incluye el estado CREADA en el apartado 4.4 
+Se incluyen mensajes basados en nuevos servicios en la descripción 
+del proceso de licitación. 
+ 
+3.1 25-01-2018 
+Se actualizan los apartados 3.1.5 y 3.1.6. Los servicios de envío de 
+comunicaciones y la posibilidad de responder a las preguntas de los 
+licitadores no estaban disponibles a través de servicios web, pero 
+ya sí lo están. 
+3.2 11-10-2019 
+Se corrige erratas en el nombre del método SetContractFolder 
+que en algunos casos se había referenciado como 
+SetContractFolderStatus 
+--- p4
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de Contratación – 
+Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 4  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Versión Fecha Descripción 
+Se eliminan referencias a la anterior ley de contratos  
+Los anuncios previos no se envían al BOE. Se explica cómo se 
+compone el pie de firma de los anuncios en el BOE  
+Se distingue el uso de los servicios de publicación a través de los 
+datos del EVL y la publicación de documentos CODICE  
+3.3 14-01-2020 
+Apartado 3.1.4. se incluye que para publicar en DOUE un anuncio 
+de adjudicación, es preciso que se haya publicado en dicho diario la 
+convocatoria también a través de PLACSP. 
+Apartado 4.4.1 Se corrige en este apartado la modificación de tipo 
+y subtipo de contrato. El CPV es modificable. 
+3.4 01-09-2020 
+Se aclara información sobre diarios oficiales: 
+Anuncio previo y de modificación de contrato no se anulan 
+Anuncio previo no se envía a BOE 
+Se eliminan referencias a anuncio de licitaciones incompletas 
+en DOUE 
+Se actualiza información sobre formulario F14 de DOUE 
+apartado 4.5 Se aclara que no se puede renunciar/desistir a lotes 
+independientemente 
+Apartado 4.3 Se incluyen nuevos campos incluidos en CODICE 
+2.05 
+3.5  30-04-2021 Apartado 4.4.1 Se corrige errata en rectificación de anuncio de pliegos 
+3.6 20-04-2022 
+Apartado 3.2 Se indican cuáles son los servicios web de segunda 
+generación, indicando aquellos de primera generación que serán 
+discontinuados. 
+Apartado 3.3 Se incluye una tabla resumen de funcionalidades de 
+los servicios web para encargos a medios propios 
+Apartado 6. Se describen procesos de otras publicaciones. En esta 
+revisión, se ha incluido el apartado 6.1 Descripción del proceso 
+para Encargos a Medios Propios. 
+3.7 02-06-2022 
+Apartado 3.2 Se incluyen los servicios web de segunda generación 
+específicos para las consultas preliminares de mercado. 
+Apartado 3.3.3 Se incluye una tabla resumen de funcionalidades de 
+los servicios web para consultas preliminares de mercado 
+Se ha incluido el apartado 6.2 Descripción del proceso para 
+Consultas Preliminares de Mercado. 
+3.8 23-11-2022 Se incluye la información en diversos apartados del servicio de previsualización de anuncios PreviewContractFolderNotice. 
+3.9 26-06-2024 
+Apartado 5.10 pequeña corrección en el primer párrafo. 
+Añadido contenido sobre nuevos anuncios: anuncio previo con 
+reducción de plazos y anuncio de finalización en los apartados 
+3.1.2, 3.1.4,  
+3.10 18-12-2025 
+Apartado 4.2.3 Se crea el apartado Bloqueo por anuncios 
+pendientes de publicación o comunicaciones masivas 
+Apartado 4.5 Estados. Se añade mayor detalle a la transición de 
+estados para los casos concretos de Basados en Acuerdo Marco y 
+Basados en Sistemas Dinámicos de Adquisición y la resolución o 
+perfeccionamiento de los mismos. 
+Apartado 6.1.1 sobre Encargos a medios propios y la Configuración 
+del encargo. Se añade como nuevo campo a configurar los 
+--- p5
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de Contratación – 
+Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 5  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Versión Fecha Descripción 
+Programas de financiación de la UE, de forma análoga a los 
+expedientes de licitación. 
+--- p6
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 6  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+INDICE 
+1 INTRODUCCIÓN ........................................................................................................... 9 
+1.1 Propósito .......................................................................................................... 9 
+1.2 Estructura del documento ................................................................................ 9 
+2 REFERENCIAS ............................................................................................................... 10 
+3 SERVICIOS OFRECIDOS POR LA PLATAFORMA DE CONTRATACIÓN 
+DEL SECTOR PÚBLICO A LOS ÓRGANOS DE CONTRATACIÓN ...................... 11 
+3.1 Portal web....................................................................................................... 11 
+3.1.1 Roles de usuarios ........................................................................................ 11 
+3.1.2 Publicación de anuncios en el perfil del contratante .................................. 12 
+3.1.3 Publicación de anuncios en el Boletín Oficial del Estado ........................... 15 
+3.1.4 Envío de anuncios al Diario Oficial de la Unión Europea .......................... 16 
+3.1.5 Comunicaciones ......................................................................................... 17 
+3.1.6 Responder a preguntas de los licitadores .................................................. 17 
+3.1.7 Administración del órgano de contratación en la Plataforma de 
+Contratación del Sector Público ............................................................................ 18 
+3.1.8 Licitación electrónica y celebración sesiones del órgano de asistencia ..... 19 
+3.2 Integración sistémica ...................................................................................... 20 
+3.2.1 Administrador B2B del órgano de contratación ........................................ 22 
+3.3 Resumen de funcionalidades ........................................................................... 25 
+3.3.1 Licitaciones y contratos menores .............................................................. 25 
+3.3.2 Encargos a Medios Propios ........................................................................ 30 
+3.3.3 Consultas Preliminares de Mercado........................................................... 31 
+--- p7
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 7  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+4 ESPACIO VIRTUAL DE LICITACIÓN .................................................................... 34 
+4.1 Usuario ........................................................................................................... 34 
+4.2 Bloqueo del  Espacio Virtual de Licitación ..................................................... 36 
+4.2.1 Bloqueo por acceso  de usuarios concurrentes ........................................... 36 
+4.2.2 Bloqueo por envío a DOUE........................................................................ 36 
+4.3 Datos ............................................................................................................... 38 
+4.4 Anuncios ......................................................................................................... 40 
+4.4.1 Coherencia de los anuncios ........................................................................ 45 
+4.5 Estados ............................................................................................................ 48 
+5 DESCRIPCIÓN DEL PROCESO DE LICITACIÓN ............................................... 72 
+5.1 Registro ........................................................................................................... 73 
+5.2 Publicación del Anuncio de Información Previa y del Anuncio de Información 
+Previa con reducción de plazos (opcional) ................................................................ 73 
+5.3 Configuración de la licitación ......................................................................... 74 
+5.4 Convocatoria .................................................................................................. 74 
+5.5 Creación y entrega de ofertas ........................................................................ 75 
+5.6 Selección de candidatos .................................................................................. 76 
+5.7 Apertura y selección de ofertas ..................................................................... 76 
+5.8 Requerimiento de documentación al licitador mejor clasificado ................... 77 
+5.9 Adjudicación, declaración de desierto, renuncia o desistimiento .................. 77 
+5.10 Formalización del contrato ............................................................................. 79 
+5.11 Modificación del contrato ............................................................................... 79 
+5.12 Finalización del contrato ................................................................................. 81 
+5.13 Previsualización de anuncios mediante servicios de segunda generación ..... 82 
+--- p8
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 8  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+6 DESCRIPCIÓN DEL PROCESO PARA OTRAS PUBLICACIONES ................ 83 
+6.1 Encargos a medios propios............................................................................. 83 
+6.1.1 Configuración del encargo.......................................................................... 83 
+6.1.2 Formalización ............................................................................................. 84 
+6.1.3 Posibles prórrogas ...................................................................................... 85 
+6.1.4 Documentación del encargo ....................................................................... 86 
+6.2 Consultas preliminares de mercado ............................................................... 86 
+6.2.1 Configuración de la consulta ...................................................................... 87 
+6.2.2 Publicación de la consulta .......................................................................... 87 
+6.2.3 Documentación de la consulta .................................................................... 88 
+ 
+--- p9
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 9  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+1 Introducción 
+1.1 Propósito 
+Este documento está dirigido al personal del órgano de contratación que utiliza los 
+servicios de la Plataforma de Contratación del Sector Público y quiere obtener una visión 
+sobre las posibilidades que le ofrece la integración sistémica para facilitar su trabajo con 
+la Plataforma desde su gestor de expedientes.  
+También es una lectura imprescindible para los consultores y analistas encargados 
+integrar un sistema de gestión de expedientes con la Plataforma. 
+Contiene la descripción funcional de los servicios ofrecidos por la Plataforma de 
+Contratación del Sector Público mediante interfaces sistémicas.  
+1.2 Estructura del documento 
+El apartado 3 contiene un resumen de los servicios ofrecidos actualmente por la 
+Plataforma de Contratación del Sector Público. 
+El apartado 4 contiene una descripción del concepto de Espacio Virtual de Licitación, 
+indicando las acciones posibles en función de los distintos estados del mismo. 
+El apartado 5 contiene un análisis del proceso de licitación, y los puntos de este proceso 
+en los que existe soporte a la integración sistémica con la Plataforma de Contratación 
+del Sector Público: publicación del anuncio de información previa, anuncio de licitación, 
+pliegos, anuncio de adjudicación y anuncio de modificación de contrato. 
+--- p10
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 10  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+2 Referencias 
+1. Especificaciones CODICE: http://contrataciondelestado.es/wps/portal/codice/ 
+2. Publicación B2B en la Plataforma de Contratación del Sector Público – 
+Documento técnico. 
+https://contrataciondelestado.es/wps/portal/servicioswebPLACSP 
+3. Publicación B2B en la Plataforma de Contratación del Estado – Procedimiento 
+de integración. 
+https://contrataciondelestado.es/wps/portal/servicioswebPLACSP 
+4. Perfil de CODICE para publicación en la Plataforma de Contratación Del 
+Estado (CiP) publicado en 
+https://contrataciondelestado.es/wps/portal/servicioswebPLACSP 
+5. Casos de Prueba para la Integración B2B publicado en 
+https://contrataciondelestado.es/wps/portal/servicioswebPLACSP 
+ 
+--- p11
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 11  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3 Servicios ofrecidos por la Plataforma de Contratación del Sector Público 
+a los órganos de contratación 
+3.1 Portal web 
+La Plataforma de Contratación del Sector Público permite acceder a todos sus servicios 
+a través de formularios mediante distintos roles: 
+3.1.1 Roles de usuarios 
+Actualmente la Plataforma cuenta con los siguientes roles que se pueden asignar a  los 
+usuarios del órgano de contratación. 
+- Responsable del Órgano de Contratación. Es la persona nombrada oficialmente con 
+capacidad para contratar en nombre del órgano de contratación. Tiene acceso a 
+todos los expedientes del órgano de contratación, y puede realizar todas las 
+tareas de administración en la Plataforma. 
+- Administrador del Órgano de Contratación . Puede administrar toda la información 
+del órgano de contratación en la Plataforma, publicar documentos en el perfil del 
+contratante, administrar sus usuarios , y reasignar expedientes a distintos 
+usuarios. Tiene acceso a los expedientes , pudiendo modificarlos y publicar 
+anuncios 
+- Publicador. Puede crear expedientes, editar la información de los expedientes de 
+su propiedad, y publicar cualquier anuncio asociado a los mismo. Puede asignar 
+editores a sus expedientes. Sólo tiene acceso a los expedientes de su propiedad. 
+- Editor. Puede editar la información de los expedientes que le hubiera asignado un 
+publicador o el responsable del órgano de contratación. No pueden publicar 
+anuncios. 
+- Administrador B2B del Órgano de Contratación. Tiene acceso a todos los mensajes 
+intercambiados entre la Plataforma de Contratación del Sector Público  y el 
+sistema del órgano de contratación conectado a través de la integración 
+sistémica. Puede ver la información de los expedientes, pero no modificarla ni 
+publicar anuncios. 
+- Invitado del Órgano de Contratación . Puede consultar la información de los 
+expedientes que el órgano de contratación le autorice a consultar pero no puede 
+editar ni publicar información. 
+--- p12
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 12  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3.1.2 Publicación de anuncios en el perfil del contratante 
+La Plataforma de Contratación del Sector Público permite publicar anuncios en el perfil 
+del contratante, y simultáneamente en el Diario Oficial de la Unión Europea (DOUE)  y 
+en el Boletín Oficial del Estado (BOE). 
+Dentro de las licitaciones en el perfil del contratante se pueden publicar los siguientes 
+tipos de anuncios: 
+- Anuncio de información previa 
+- Anuncio de información previa con reducción de plazos 
+- Anuncio de licitación 
+- Pliegos 
+- Anuncio de adjudicación y licitaciones desiertas 
+- Renuncias 
+- Desistimientos 
+- Anuncios de formalización 
+- Anuncio de modificación de contrato 
+- Anuncio de finalización 
+--- p13
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 13  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+Anuncio previo publicado en la Plataforma de Contratación del Sector Público 
+También es posible publicar cualquier otro documento además de los anteriores en 
+relación con un proceso de licitación determinado. Estos documentos, a diferencia de 
+los anteriores, serán no estructurados (PDF, documentos de texto, hojas de cálculo, 
+etc.) 
+
+--- p14
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 14  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+Documento no estructurado relativo a un acto público informativo 
+publicado en la Plataforma de Contratación del Sector Público 
+Además es posible anular cualquier documento publicado en la Plataforma de 
+Contratación del Sector Público. Los anuncios anulados siempre permanecerán visibles 
+al público, aunque marcados como anulados, mientras que los demás documentos que 
+se hubieran anulado desaparecerán del área de la Plataforma accesible al público. 
+
+--- p15
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 15  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+Vista pública de un expediente con anuncios anulados 
+3.1.3 Publicación de anuncios en el Boletín Oficial del Estado 
+La Plataforma de Contratación del Sector Público permite el envío de los siguientes tipos 
+de anuncios al Boletín Oficial del Estado, de forma simultánea a la publicación en el perfil 
+del contratante (el anuncio se envía al BOE al mismo tiempo que se publica en la 
+Plataforma, y no se puede hacer de forma separada) 
+- Anuncio de Licitación 
+- Corrección de Anuncio de Licitación 
+- Anuncio de Formalización 
+- Corrección de Anuncio de Formalización 
+El pie de firma de los anuncios que publica el BOE se compone con el nombre, los 
+apellidos y el cargo del responsable (usuario con rol ROC) dado de alta en el perfil de 
+contratante y como fecha de firma la del envío del anuncio a dicho diario. 
+La publicación de anuncios en el Boletín Oficial del Estado requiere la confirmación a 
+través de la Extranet del BOE, y el pago de las correspondientes tasas en aquellos casos 
+
+--- p16
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 16  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+en los que el anuncio no sea gratuito. El procedimiento de confirmación y pago se realiza 
+a través de una URL que devuelve el BOE como respuesta al envío del anuncio.  
+El anuncio no se publicará en el Boletín si no se realiza este último paso de confirmación, 
+quedando en el expediente como “Pendiente de Confirmar . Los anuncios de 
+formalización en el BOE se publican directamente sin necesidad de confirmación dado 
+su carácter gratuito. 
+En el caso de que se anule una publicación de un anuncio publicado en el BOE a través 
+de la PLCSP, esta permite enviar también la anulación a dicho diario, desde el momento 
+en el que se produce la publicación.  
+ 
+3.1.4 Envío de anuncios al Diario Oficial de la Unión Europea 
+El Reglamento de Ejecución 2019/1780  de la Comisión establece formularios 
+normalizados para la publicación de anuncios en el ámbito de la contratación pública y 
+deroga el Reglamento de Ejecución (UE) 2015/1986 («formularios electrónicos»).  
+El detalle de los nuevos formularios normalizados puede consultarse en el Anexo del 
+Reglamento de Ejecución 2019/1780. 
+Puede consultarse la Guía de Publicación de anuncios en Diarios Oficiales v1.9.
+--- p17
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 17  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3.1.5 Comunicaciones 
+La Plataforma permite el envío de comunicaciones electrónicas a los licitadores con 
+registro de la persona física que accedió a su contenido y fecha de acceso a la misma: 
+invitaciones a licitar, admisión y exclusión, notificación de adjudicación, requerimi ento 
+de documentación al licitador mejor clasificado, etc. 
+ 
+3.1.6 Responder a preguntas de los licitadores 
+Los licitadores pueden realizar preguntas al órgano de contratación a través de la 
+Plataforma. El propietario del expediente recibirá  un aviso y  un correo electrónico 
+informándole de que tiene una pregunta pendiente de responder. 
+ 
+ 
+
+--- p18
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 18  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3.1.7 Administración del órgano de contratación en la Plataforma de 
+Contratación del Sector Público 
+La Plataforma permite la administración delegada en el órgano de contratación. El 
+administrador del órgano de contratación puede editar la información publicada en el 
+perfil del contratante, y administrar los usuarios dependientes del mismo. 
+Este servicio no se encuentra disponible mediante integración sistémica. 
+  
+--- p19
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 19  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3.1.8 Licitación electrónica y celebración sesiones del órgano de asistencia 
+La Plataforma de Contratación del Sector Público ofrece a los órganos de contratación 
+la posibilidad de habilitar la recepción electrónica de documentación y ofertas a través 
+de la misma. 
+Cuando se hace uso de esta posibilidad, las empresas pueden preparar y presentar las 
+ofertas y documentación asociada a través de la Plataforma. Las empresas tienen que 
+cumplimentar los distintos sobres con el contenido que establezca el órgano de 
+contratación en la configuración de la licitación electrónica.  
+Las ofertas presentadas se custodian de forma segura en la Plataforma, hasta que se 
+celebre la sesión del Órgano de Asistencia (Mesa o Junta de Contratación, u órgano 
+equivalente) 
+Los tres actores que intervienen en este tipo de licitaciones son los siguientes: 
+A)  Órgano de contratación 
+ 
+Configura la licitación electrónica estableciendo el número, tipo y contenido de 
+los sobres electrónicos, especificando los criterios de selección de candidatos, 
+los criterios de adjudicación y la información que se requiere a los licitadores 
+para poder evaluar el cumplimiento de estos criterios.  
+ 
+Una vez configurada la licitación electrónica, realizan la convocatoria mediante la 
+publicación de un anuncio, o el envío de una invitación en función del tipo de 
+procedimiento de contratación, 
+ 
+B) Licitadores 
+ 
+Acceden a la convocatoria de la licitación, descargando el anuncio de licitación 
+publicado en el perfil del contratante o accediendo al contenido de la invitación 
+enviada a través de la Plataforma por el órgano de contratación, 
+ 
+Preparan, firman y presentan la documentación a través de una herramienta 
+proporcionada por la Plataforma con la configuración establecida por el órgano 
+de contratación al realizar la convocatoria. 
+ 
+C) Órganos de asistencia (Mesas o Juntas de Contratación, u órganos equivalentes) 
+ 
+Convocan y celebran sesiones en las que se llevan a cabo actos relacionados con 
+procedimientos de contratación electrónicos. Estos actos pueden consistir en la 
+apertura y evaluación de ofertas, evaluación del cumplimiento de los criterios de 
+selección o adjudicación, propuesta de adjudicación, etc. 
+--- p20
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 20  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+3.2 Integración sistémica 
+La integración sistémica consiste en el intercambio de datos entre los sistemas de 
+información del órgano de contratación y la Plataforma de Contratación del Sector 
+Público, permitiendo reutilizar la información ya existente en los sistemas de gestión de 
+expedientes, con el fin de reducir los costes de tratamiento de la información y reducir 
+errores. 
+La integración sistémica se lleva a cabo mediante servicios Web para el intercambio de 
+información en formato XML-CODICE. Los detalles técnicos se pueden encontrar en el 
+documento “Servicios web de la Plataforma de Contratación del Sector Público  para 
+Órganos de Contratación – Documento técnico”. 
+Actualmente la Plataforma ofrece los siguientes servicios mediante la integración 
+sistémica: 
+• Servicios de segunda generación  – permiten la gestión del espacio virtual del 
+expediente para realizar las siguientes operaciones: 
+a) Consulta de información del Espacio Virtual de l Expediente 
+(GetContractFolderStatus) 
+ 
+b) Consulta de información sobre el estado de un anuncio (GetNoticeInfo) 
+ 
+c) Edición de la información del Espacio Virtual del Expediente (SetContractFolder) 
+ 
+d) Carga de documentos en el Espacio Virtual del Expediente (UploadDocument) 
+ 
+e) Descarga de documentos del Espacio Virtual del Expediente  
+(DownloadDocument) 
+ 
+f) Publicación/Rectificación de un anuncio a partir de la inf ormación del Espacio 
+Virtual del Expediente (PublishContractFolderNotice), con la posibilidad de 
+envío a Diarios Oficiales (DOUE y BOE) 
+ 
+g) Envío de notificaciones a partir de la inf ormación del Espacio Virtual del 
+Expediente (SendContractFolderNotification) 
+ 
+h) Anulación de anuncios (CancelNotice) 
+ 
+i) Publicación de documentos generales (PublishGeneralContractDocument).  
+ 
+j) Anulación de publicaciones de documentos generales (CancelGeneralDocument) 
+ 
+--- p21
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 21  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+k) Consulta de datos del órgano de contratación (getBuyerProfileData) 
+ 
+l) Publicación del Anuncio de Adjudicación (PublishContractAwardNotice) 
+únicamente para la publicación de contratos menores 
+ 
+m) Servicios de validación y previsualización de documentos CODICE únicamente 
+para validación y previsualización de adjudicaciones de contratos 
+menores:  
+o Validación de documentos CODICE (validateCODICE) 
+o Previsualización de documentos CODICE (viewCODICE) 
+ 
+n) Edición de la información de la Consulta Preliminar de Mercado  
+(SetPreliminaryMarketConsultation) 
+ 
+o) Consulta de información de la Consulta Preliminar de Mercado  
+(GetPreliminaryMarketConsultationStatus) 
+ 
+ 
+p) Publicación, rectificación y anulación del anuncio de publicación de la Consulta 
+Preliminar de Mercado (PublishPreliminaryMarketConsultationNotice) 
+ 
+q) Previsualización de anuncios (PreviewContractFolderNotice) 
+ 
+• Servicios de primera generación  – Estos servicios no se les ofrece soporte ni 
+actualizaciones desde el día 31/01/2022. La fecha de su discontinuación en el entorno 
+de producción será el 30/06/2022, excepto para los relacionados con la publicación 
+de contratos menores. 
+A continuación, se indican las operaciones  afectadas por esta 
+discontinuación: 
+a) Consulta del estado del expediente (getExpedientState/ 
+getExpedientStateFull). 
+  
+b) Publicación del Anuncio Previo (PublishPriorInformationNotice) 
+ 
+c) Publicación del Anuncio del Licitación (PublishContractNotice) 
+ 
+d) Publicación del Documento de Pliego (PublishCallForTenders).  
+ 
+e) Publicación del Anuncio de Adjudicación (PublishContractAwardNotice) 
+excepto para la publicación de contratos menores 
+--- p22
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 22  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+f) Publicación del Anuncio de Modificación de Contrato (PublishNotice) 
+ 
+g) Servicios de validación y previsualización de documentos CODICE excepto 
+para validación y previsualización de adjudicaciones de contratos 
+menores:  
+a. Validación de documentos CODICE (validateCODICE) 
+b. Previsualización de documentos CODICE (viewCODICE) 
+ 
+3.2.1 Administrador B2B del órgano de contratación 
+Existe un rol de usuario Administrador B2B del Órgano de Contratación, que puede 
+acceder a la información de todos los mensajes intercambiados entre los sistemas, así 
+como al contenido de los espacios virtuales de licitación creados median te interacción 
+sistémica. 
+Para contar con este usuario deberán solicitarlo al Administrador de su Órgano de 
+Contratación. 
+El Administrador B2B puede consultar todas las peticiones B2B realizadas sobre su perfil 
+del contratante: 
+• Servicio y tipo de petición: 
+ 
+a) Relacionados con servicios de primera generación 
+i. Servicio de publicación de anuncio 
+1. Publicación de anuncio de información previa 
+2. Publicación de anuncio de licitación 
+3. Publicación de pliegos 
+4. Publicación de anuncio de adjudicación (excepto contratos 
+menores) 
+5. Consulta del estado del expediente 
+ii. Servicio de consulta 
+1. Consulta del expediente 
+iii. Servicio de validación/ previsualización (excepto contratos 
+menores) 
+1. Validación de anuncio 
+2. Previsualización de anuncio 
+iv. Nuevo Servicio Publicación Anuncio 
+1. Publicación de anuncio modificación de contrato 
+b) Relacionados con servicios de segunda generación 
+I. Consultar expediente 
+II. Editar el Espacio Virtual de la Licitación 
+--- p23
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 23  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+III. Consultar anuncio 
+IV. Publicar anuncio desde el EVL 
+V. Enviar comunicación desde el EVL 
+VI. Descargar documento 
+VII. Cargar documento 
+VIII. Servicio de anulaciones 
+i. Publicación de anulación de anuncio 
+ii. Eliminación de documento general 
+IX. Servicio de publicación de anuncio 
+i. Publicación de anuncio de adjudicación (sólo contratos 
+menores) 
+ii. Publicación de documentos generales 
+X. Servicio de validación/previsualización (sólo contratos menores) 
+i. Validación de anuncio 
+ii. Previsualización de anuncio 
+XI. Servicio de consulta 
+i. Consulta de datos del órgano de contratación 
+XII. Consultar consulta preliminar de mercado 
+XIII. Editar consulta preliminar de mercado 
+XIV. Publicar consulta preliminar de mercado 
+XV. Previsualización de anuncio (para expedientes y contratos 
+menores que no utilicen el servicio PublishContractAwardNotice 
+para publicarse) 
+ 
+• Interfaz: CODICE 1.0 (en desuso); CODICE 2.0 
+• Resultado de la petición: OK; ERROR 
+• Id de Petición: ID del documento indicado en el XML 
+• Número de expediente 
+• Fecha de petición 
+Como resultado de la consulta obtendrá una lista de peticiones que podrá ordenar por 
+múltiples criterios 
+ 
+--- p24
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 24  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+Accediendo al detalle de la petición, podrá encontrar la misma información, y además se 
+podrá descargar los mensajes XML de petición y de respuesta y acceder al detalle de los 
+expedientes, aunque no podrá editar la información ni realizar ninguna acción sobre la 
+licitación. 
+
+--- p25
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 25  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+3.3 Resumen de funcionalidades  
+3.3.1 Licitaciones y contratos menores 
+En la siguiente tabla se resumen todos los servicios ofrecidos por la Plataforma de Contratación del Sector Público para licitaciones y contratos 
+menores, indicando si se encuentran disponibles a través de aplicación web o mediante la conexión con un sistema externo, como por ejemplo 
+un gestor de expedientes. Cuando la funcionalidad se encuentra disponible mediante integración sistémica, entre paréntesis aparece el nombre 
+de la operación (Ver documento técnico) 
+ 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+SERVICIOS A LOS ÓRGANOS DE CONTRATACIÓN 
+  Gestión de la licitación     
+  Edición del Espacio Virtual de la Licitación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+  Carga de documentos en el Espacio Virtual de la Licitación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.UploadDocument) 
+  Borrado de documentos del Espacio Virtual de la Licitación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+  Asignación del Espacio Virtual de la Licitación a un usuario SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ Publicación de anuncios   
+    Publicación anuncio de información previa en PLCSP y DOUE SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice) 
+    Publicación de anuncio de licitación en PLCSP, BOE y DOUE SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+--- p26
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 26  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+    Publicación de los pliegos ó documento descriptivo (Diálogo competitivo) en PLCSP SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+    
+Publicación del anuncio de adjudicación, y envío en su caso de Anuncio de 
+Transparencia Previa Voluntaria al DOUE SÍ 
+SÍ 
+(ServiciosPublicacionCODICE2.PublishContratctAwardNoticeN
+otice para la publicación de adjudicación de contratos 
+menores o 
+ServiciosGestonLicitacion.PublishContractFolderNotice para 
+publicación a partir de los datos del EVL 
+    Publicación del anuncio de formalización, y envío a BOE y DOUE SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+  Publicación de anuncio de modificación de contrato en PLCSP y envío a DOUE  SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice) 
+    Publicación de la renuncia a la celebración del contrato y envío a DOUE  SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+    Publicación del desistimiento del procedimiento y envío a DOUE SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+    Rectificación de anuncios ya publicados en PLACE, BOE y DOUE SÍ 
+SÍ (Las mismas operaciones que se pueden utilizar para 
+publicar el anuncio) 
+  Publicación de anulación de anuncios  publicados en PLACE, BOE y/o DOUE SI 
+SÍ  
+(ServiciosPLACEB2B.CancelNotice) 
+    Publicación de cualquier otro documento asociado a una licitación SÍ 
+SÍ  
+(ServiciosPublicacionB2B.PublishGeneralDocument) 
+  Anulación de otros documentos publicados (no estructurados) relativos a la licitación  SI 
+SÍ  
+(ServiciosPLACEB2B.CancelGeneralDocument) 
+    Validación del anuncio antes de su publicación SÍ 
+SÍ 
+(ServiciosCODICE2.validateCODICE) sólo para contratos 
+menores publicados mediante el servicio 
+--- p27
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 27  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+ServiciosPublicacionCODICE2.PublishContratctAwardNoticeN
+otice 
+    Previsualización del anuncio antes de su publicación SÍ 
+SÍ 
+(ServiciosCODICE2.viewCODICE) sólo para contratos menores 
+publicados mediante el servicio 
+ServiciosPublicacionCODICE2.PublishContratctAwardNoticeN
+otice CODICE  
+ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNot
+ice) para expedientes y para contratos menores no publicados 
+mediante el servicio 
+ServiciosPublicacionCODICE2.PublishContratctAwardNoticeN
+otice 
+  Preguntas y respuestas     
+   Responder preguntas de los licitadores SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+  Notificación     
+    Envío de la invitación a licitar SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.SendContractFolderNotific
+ation) 
+    Envío de notificaciones de admisión/exclusión SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.SendContractFolderNotific
+ation) 
+    Envío de notificación de requerimiento de documentación al licitador mejor clasificado  SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.SendContractFolderNotific
+ation) 
+    Envío de notificaciones de adjudicación SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.SendContractFolderNotific
+ation) 
+  Previsualizar la notificación antes de enviarla SÍ NO 
+  Licitación electrónica     
+--- p28
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 28  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+  
+Configuración de la licitación electrónica (sobres, criterios de selección, criterios de 
+adjudicación) SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.SetContractFolder) 
+  
+Consulta de la propuesta de adjudicación, puntuación de los licitadores, y descarga de 
+la documentación presentada SÍ 
+SÍ 
+(ServicioGestionLicitacionPLACSP.GetContractFolder) 
+    Descarga de certificados del ROLECE SÍ NO 
+    Consulta al registro de apoderamientos de la Caja General de Depósitos SÍ NO 
+  Consulta sobre el cumplimiento de obligaciones con la Seguridad Social SÍ NO 
+  Consulta al Servicio de Verificación de Datos de Identidad SÍ NO 
+  Consulta sobre la constitución de Garantías en la Caja General de Depósitos  SÍ NO 
+  Consulta sobre el cumplimiento de obligaciones tributarias SÍ NO 
+ Consulta   
+  Consulta de los datos del Espacio Virtual de la Licitación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+  Consulta del estado de un anuncio SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+  Descarga de documentos del Espacio Virtual de la Licitación SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+ Administración del órgano de contratación en la Plataforma SÍ NO 
+--- p29
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 29  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+ 
+ 
+ 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+ SERVICIOS A LOS ÓRGANOS DE ASISTENCIA 
+ Licitación electrónica   
+  Convocatoria y constitución de órganos de asistencia (mesas de contratación)  SÍ NO 
+  Apertura de ofertas electrónicas SÍ NO 
+  Calificación de documentación administrativa SÍ NO 
+  Evaluación de ofertas SÍ NO 
+  Propuesta de adjudicación SÍ NO 
+    Descarga de certificados del ROLECE SÍ NO 
+    Consulta al registro de apoderamientos de la Caja General de Depósitos SÍ NO 
+  Consulta sobre el cumplimiento de obligaciones con la Seguridad Social SÍ NO 
+  Consulta al Servicio de Verificación de Datos de Identidad SÍ NO 
+  Consulta sobre la constitución de Garantías en la Caja General de Depósitos  SÍ NO 
+  Consulta sobre el cumplimiento de obligaciones tributarias SÍ NO 
+  
+--- p30
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 30  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+3.3.2 Encargos a Medios Propios 
+ 
+En la siguiente tabla se resumen todos los servicios ofrecidos por la Plataforma de Contratación del Sector Público para encargos a medios 
+propios, indicando si se encuentran disponibles a través de aplicación web o mediante la conexión con un sistema externo, como por ejemplo 
+un gestor de expedientes. Cuando la funcionalidad se encuentra disponible mediante integración sistémica, entre paréntesis aparece el nombre 
+de la operación (Ver documento técnico) 
+ 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+SERVICIOS A LOS ÓRGANOS DE CONTRATACIÓN 
+  Gestión de la licitación     
+  Edición del Encargo a Medio Propio SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+  Carga de documentos SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.UploadDocument) 
+  Borrado de documentos SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ Publicación de anuncios   
+    Publicación del anuncio de formalización SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice) 
+    Publicación de anuncio de prórroga SÍ SÍ (ServiciosGestonLicitacion.PublishContractFolderNotice)  
+    Rectificación de anuncios ya publicados SÍ 
+SÍ (Las mismas operaciones que se pueden utilizar para 
+publicar el anuncio) 
+--- p31
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 31  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+  Publicación de anulación de anuncios publicados SI 
+SÍ  
+(ServiciosGestonLicitacion.PublishContractFolderNotice) 
+    Publicación de documentos previamente cargados SÍ 
+SÍ  
+(ServiciosPublicacionB2B.PublishGeneralDocument) 
+  Anulación de documentos publicados SI 
+SÍ  
+(ServiciosPLACEB2B.CancelGeneralDocument) 
+  Validación del anuncio antes de su publicación SÍ NO 
+    Previsualización del anuncio antes de su publicación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNot
+ice) 
+ Consulta   
+  Consulta de los datos del Expediente SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+  Consulta del estado de un anuncio SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+  Descarga de documentos del Expediente SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+3.3.3 Consultas Preliminares de Mercado 
+En la siguiente tabla se resumen todos los servicios ofrecidos por la Plataforma de Contratación del Sector Público para consultas preliminares 
+de mercado, indicando si se encuentran disponibles a través de aplicación web o mediante la conexión con un sistema externo, como por ejemplo 
+un gestor de expedientes. Cuando la funcionalidad se encuentra disponible mediante integración sistémica, entre paréntesis aparece el nombre 
+de la operación (Ver documento técnico) 
+ 
+--- p32
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 32  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+SERVICIOS A LOS ÓRGANOS DE CONTRATACIÓN 
+  Gestión de la consulta preliminar de mercado     
+  Edición de la Consulta Preliminar de Mercado SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetPreliminaryMarketCon
+sultation) 
+  Carga de documentos SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.UploadDocument) 
+  Borrado de documentos SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.SetPreliminaryMarketCon
+sultation) 
+ Publicación de anuncios   
+    Publicación de la consulta SÍ 
+SÍ 
+(ServiciosGestonLicitacion.PublishPreliminaryMarketConsultat
+ionNotice) 
+    Rectificación de anuncios ya publicados SÍ 
+SÍ (Las mismas operaciones que se pueden utilizar para 
+publicar el anuncio) 
+  Publicación de anulación de anuncios publicados SI 
+SÍ  
+(ServiciosGestonLicitacion.PublishPreliminaryMarketConsultat
+ionNotice) 
+    Publicación de documentos previamente cargados SÍ 
+SÍ  
+(ServiciosPublicacionB2B.PublishGeneralDocument) 
+  Anulación de documentos publicados SI 
+SÍ  
+(ServiciosPLACEB2B.CancelGeneralDocument) 
+  Validación del anuncio antes de su publicación SÍ NO 
+    Previsualización del anuncio antes de su publicación SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNot
+ice) 
+--- p33
+Plataforma de Contratación  
+del Sector Público 
+ 
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 33  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO DIRECCIÓN GENERAL DEL PATRIMONIO DEL ESTADO 
+FUNCIONALIDAD 
+Portal 
+Web Integración sistémica 
+ Consulta   
+  Consulta de los datos de la Consulta Preliminar de Mercado SÍ 
+SÍ 
+(ServiciosGestionLicitacionPLACSP.GetPreliminaryMarketCon
+sultationStatus) 
+  Consulta del estado de un anuncio SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+  Descarga de documentos de la Consulta SÍ 
+ 
+SÍ (ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+ 
+ 
+--- p34
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 34  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+4 Espacio Virtual de Licitación 
+El Espacio Virtual de Licitación (EVL) es un concepto asimilable al de expediente dentro 
+de la PLCSP, que contiene todos los documentos y evidencias de actuaciones 
+relacionadas con la licitación que introduzcan los usuarios autorizados del Órgano de 
+Contratación. 
+ 
+El EVL cuenta en un instante determinado con un estado (que se especifica en el apartado 
+siguiente) y unos datos que pueden irse modificando a lo largo de la licitación a discreción 
+del Órgano de Contratación. 
+4.1 Usuario 
+Todas las licitaciones de la Plataforma son propiedad de  un usuario del órgano de 
+contratación, con rol Responsable, Administrador o Publicador.  
+El usuario propietario  de una licitación recibirá correos electrónicos  y avisos 
+relacionados con ella  ante determinados eventos. Podrá recibir, por ejemplo, correos 
+sobre preguntas realizadas por empresas, avisos de que se ha publicado el anuncio en el 
+BOE/DOUE, etc  
+Cuando se recibe un anuncio en la Plataforma, si este se refiere a un expediente no 
+existente dentro del perfil del contratante del órgano de contratación, se crea un nuevo 
+Espacio Virtual de Licitación, que por defecto es propiedad del Responsable del Órgano 
+de Contratación.  
+
+--- p35
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 35  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+El servicio de publicación o edición del EVL permite indicar el usuario con rol Publicador 
+al que debe quedar asignado el expediente. Cada vez que se publica un nuevo anuncio o 
+documento es posible cambiar el Publicador al que este debe quedar asignado. 
+La visibilidad que los usuarios de un órgano de contratación tienen de las licitaciones de 
+este depende de su rol y de las asignaciones que se hubieran realizado. 
+- Los usuarios Responsable y Administrador puede ver todos los expedientes de su 
+órgano de contratación independientemente de quién sea el propietario.  
+- El usuario Publicador únicamente puede ver los expedientes de su propiedad , y 
+no los de los demás. 
+- El usuario Editor únicamente puede ver los expedientes que le haya asignado el 
+Responsable o Publicador propietario del mismo.  
+- Los usuarios Invitado y Administrador B2B del Órgano de Contratación  pueden 
+acceder a la información de los expedientes publicados por B2B, aunque no 
+pueden modificar la información. 
+- El usuario Administrador del Órgano de Contratación  puede reasignar los 
+expedientes, modificando el propietario del expediente y por lo tanto su 
+visibilidad. 
+Por defecto, los usuarios con rol Editor no tendrán acceso a los expedientes con 
+anuncios publicados a través de la integración sistémica. 
+La asignación de expedientes a usuarios se puede modificar desde la consola de 
+Administración (usuarios con rol Responsable, o Administrador del Órgano de 
+Contratación) 
+--- p36
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 36  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+ 
+4.2 Bloqueo del  Espacio Virtual de Licitación 
+4.2.1 Bloqueo por acceso  de usuarios concurrentes 
+Para evitar errores de sobreescritura, un EVL sólo puede ser accedido en modo 
+escritura simultáneamente por un usuario.  
+Si un usuario publicador o editor accede a una licitación esta queda bloqueada para que 
+ningún otro usuario pueda reescribir los cambios de otro.  
+En el caso de publicación a través de integración sistémica, este mecanismo hace que se 
+rechacen las peticiones sobre una licitación si un usuario hubiera accedido a la licitación 
+a través de la aplicación Web y tuviera el control de la misma . Del mismo modo sería 
+rechazada una petición si todavía no se hubiera terminado de procesar otra relativa al 
+mismo expediente.  
+4.2.2 Bloqueo por envío a DOUE 
+El art ículo 52 de la Directiva 2014/24/UE establece una restricci ón por la que los 
+anuncios no se pueden publicar a nivel nacional antes de la publicaci ón en el Diario 
+Oficial de la Uni ón Europea cuando esta fuera aplicable, o bien hasta transcurrido un 
+plazo mínimo de 48 horas desde el acuse de recibo del anuncio enviado al DOUE. 
+
+--- p37
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 37  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Cuando en un anuncio de licitaci ón, formalizaci ón, desierto, renuncia o 
+desistimiento se envía al DOUE a través de la Plataforma, se establece un mecanismo 
+que permite asegurar el cumplimiento de esta restricción.  
+El anuncio se envía al Diario Oficial de la Unión Europea, y al BOE en su caso. La licitación 
+se bloquea de manera que no es posible modificar la información para evitar diferencias 
+entre la información publicada en el DOUE y la que figura en la Plataforma. 
+En el caso del anuncio enviado al BOE, no se permite su env ío con carácter urgente si 
+hay envío al DOUE, con lo que se asegura que al menos transcurran 48 horas hasta la 
+publicación en Boletín Oficial. 
+ 
+La Plataforma revisa todas las licitaciones que se encuentran en espera, y si se cumple n 
+las circunstancias para la publicación del anuncio en el perfil de contratante  se procede 
+a su publicación y al desbloqueo de la licitación. 
+Los anuncios de información previa, rectificación, Anuncio de Transparencia Previa 
+Voluntaria, modificación de contrato, o anulación no requieren esperar para proceder a 
+su publicación a nivel nacional por lo que en estos casos no se bloquea la licitación. 
+4.2.3 Bloqueo por anuncios pendientes de publicación o comunicaciones masivas 
+El EVL podrá quedar bloqueado temporalmente cuando se estén procesando 
+operaciones que afecten a su integridad, como: 
+• Publicación de anuncios gestionada de forma asíncrona. 
+• Envío de comunicaciones a múltiples destinatarios simultáneamente. Este 
+bloqueo impide la edición del EVL hasta que finalice el procesamiento, cuyo 
+tiempo puede variar según el volumen de información. Las comunicaciones 
+simples (a un único destinatario) no  generan bloqueo. Durante el bloqueo, se 
+
+--- p38
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 38  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+podrán seguir utilizando los servicios de consulta del EVL, por ejemplo, 
+ServiciosGestionLicitacionPLACSP.GetContractFolderStatus. 
+ 
+4.3 Datos 
+El EVL contiene los datos de la licitación introducidos por los órganos de contratación 
+para publicar información relativa a las mismas.  
+La publicación de un anuncio actualiza los datos existentes en el EVL.  Las herramientas 
+de búsqueda de licitaciones proporcionadas por la PLCSP a los licitadores y a los propios 
+usuarios de los Órganos de Contratación se realizan sobre los datos actualizados de los 
+EVL en el momento de la última publicación.  
+• Información sobre el objeto del contrato   
+ Contrato sujeto a regulación armonizada 
+  Directiva de aplicación 
+Marco Legal Nacional 
+  Tipo y subtipo de contrato 
+  Objeto del contrato 
+  Compra pública innovadora  
+  Valor estimado del contrato 
+  Presupuesto base de la licitación 
+  Fecha prevista de inicio del proceso de adjudicación 
+  Lugar de ejecución 
+  CPV 
+  Lotes 
+  Entregables 
+• Información sobre el procedimiento   
+  Procedimiento contratación 
+  Sistema de contratación 
+  Tipo tramitación 
+  Tramitación gasto 
+Forma de presentación 
+  Idiomas adicionales al español 
+  Se aceptan variantes 
+  Acuerdo de contratación pública 
+  Las ofertas deben incluir catálogos electrónicos 
+  Reducción de candidatos en fases sucesivas 
+  Fecha final obtención pliegos 
+  Fecha final presentación de solicitudes de participación 
+  Fecha final de presentación de ofertas 
+--- p39
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 39  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+  Fecha prevista de envío de invitaciones 
+  Información sobre subasta electrónica 
+  Eventos de apertura de ofertas 
+• Pliegos   
+  Pliego de prescripciones técnicas 
+  Pliego de cláusulas administrativas 
+  Anexos pliego 
+• Condiciones de Licitación   
+  Programas de financiación de la UE 
+  Fórmula de revisión de precios 
+  Condiciones de admisión de candidatos 
+  Garantías requeridas 
+  Criterios de adjudicación 
+ Condiciones de ejecución 
+  Plazo de ejecución 
+  Uso de pedido, factura y/o pago electrónico 
+  Opciones y prórrogas 
+  Subcontratación permitida 
+  Sobres de la oferta 
+  Proveedor de pliegos 
+  Recepción de ofertas 
+  Contacto para información adicional 
+  Información sobre presentación de recursos 
+Número de recursos presentados 
+• Resultado del procedimiento   
+  Adjudicatarios 
+  Importes de adjudicación 
+  Datos de la adjudicación 
+  Plazo de formalización del contrato 
+  Subcontratación indicada en la oferta ganadora 
+• Información sobre la formalización   
+  Información sobre el contrato 
+• Modificaciones de contrato   
+  Información sobres las modificaciones de contrato 
+--- p40
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 40  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+4.4 Anuncios 
+A partir de los datos contenidos en el EVL se pueden publicar distintos tipos de anuncios 
+en el marco de un proceso de licitación. 
+• Anuncio de Información Previa (AP)  
+ 
+Permite dar publicidad a los anuncios previos.  
+ 
+• Anuncio de Licitación (AL) 
+ 
+Anuncio publicado para convocar las licitaciones. 
+ 
+• Pliegos (P) 
+ 
+Pliegos que rigen el procedimiento de licitación. 
+ 
+• Anuncio de Adjudicación ó Desierto (AADJ) 
+ 
+Permite dar publicidad sobre la adjudicación del contrato. 
+ 
+• Anuncio de Formalización (AF) 
+Permite dar publicidad sobre la formalización del contrato.  
+ 
+• Anuncio de Renuncia (AR) 
+ 
+Permite dar publicidad a la decisión de no adjudicar o celebrar el contrato.  
+ 
+• Anuncio de desistimiento (AD) 
+ 
+Permite dar publicidad al desistimiento del procedimiento. 
+ 
+• Anuncio de modificación de contrato (MOD) 
+ 
+Permite dar publicidad a las modificaciones del contrato. 
+La información del EVL que se incluye en cada tipo de anuncio se recoge en el siguiente 
+cuadro. 
+Datos  ANUNCIOS 
+--- p41
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 41  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+AP AL P AADJ AF 
+AR/ 
+AD MOD 
+Información 
+sobre la entidad 
+adjudicadora   X X X X X X X 
+  Datos identificativos 
+  
+  Datos de contacto 
+  Actividad 
+Información 
+sobre el objeto 
+del contrato   X X X X X X X 
+ 
+Contrato sujeto a regulación 
+armonizada 
+  
+  Directiva de aplicación 
+  Marco Legal Nacional 
+  Tipo y subtipo de contrato 
+  Objeto del contrato 
+  Compra pública innovadora 
+  Procedimiento contratación 
+  Sistema de contratación 
+  Tipo tramitación 
+  Tramitación gasto 
+  Valor estimado del contrato 
+  
+Presupuesto base de la 
+licitación 
+--- p42
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 42  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+  
+Fecha prevista de inicio del 
+proceso de adjudicación 
+  Lugar de ejecución 
+  CPV 
+  Lotes 
+  Entregables 
+Información 
+sobre el 
+procedimiento   X X X X X X X 
+  Procedimiento contratación 
+  
+  Sistema de contratación 
+  Tipo tramitación 
+  Tramitación gasto 
+  Forma de presentación 
+  Idiomas adicionales al español 
+  Se aceptan variantes 
+  
+Acuerdo de contratación 
+pública 
+  
+Las ofertas deben incluir 
+catálogos electrónicos 
+  
+Reducción de candidatos en 
+fases sucesivas 
+  Fecha final obtención pliegos 
+  
+Fecha final presentación de 
+solicitudes de participación 
+--- p43
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 43  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+  
+Fecha final de presentación de 
+ofertas 
+  
+Fecha prevista de envío de 
+invitaciones 
+  
+Información sobre subasta 
+electrónica 
+  Eventos de apertura de ofertas 
+Pliegos       X         
+  
+Pliego de prescripciones 
+técnicas 
+  
+  
+Pliego de cláusulas 
+adminsitrativas 
+  Anexos pliego 
+Condiciones de 
+Licitación   X X X X X X   
+  
+Programas de financiación de la 
+UE 
+  
+  Fórmula de revisión de precios 
+  
+Condiciones de admisión de 
+candidatos 
+  Garantías requeridas 
+  Criterios de adjudicación 
+  Plazo de ejecución 
+  
+Uso de pedido, factura y/o pago 
+electrónico 
+  Opciones y prórrogas 
+--- p44
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 44  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+  Subcontratación permitida 
+  Sobres de la oferta 
+  Proveedor de pliegos 
+  Recepción de ofertas 
+  
+Contacto para información 
+adicional 
+  
+Información sobre 
+presentación de recursos 
+Resultado del 
+procedimiento         X X X X 
+  Adjudicatarios 
+  
+  Importes de adjudicación 
+  Datos de la adjudicación 
+  
+Plazo de formalización del 
+contrato 
+  
+Subcontratación indicada en la 
+oferta ganadora 
+Información 
+sobre la 
+formalización                 
+  Información sobre el contrato         X   X 
+  
+Número de recursos 
+presentados         X     
+Modificaciones 
+de contrato                 
+  
+Información sobres las 
+modificaciones de contrato             X 
+--- p45
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 45  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+4.4.1 Coherencia de los anuncios 
+Con el fin de asegurar la coherencia de la informaci ón publicada en la Plataforma de 
+Contratación del Sector Público en los diversos anuncios a lo largo del procedimiento 
+de contratación se realiza una serie de comprobaciones que permitirán detectar posibles 
+errores en la información antes de publicarla. 
+Las comprobaciones son las siguientes: 
+Rectificación del Anuncio Previo:  Una vez que se ha publicado el anuncio previo 
+no es posible modificar: 
+Los datos básicos del proceso de licitación 
+- Tipo de procedimiento (Abierto; Restringido; etc.) 
+- Modo de presentación de ofertas 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+Rectificación del Anuncio de licitaci ón: No se permite modificar los siguientes 
+datos (Para poder modificarlos sería necesario primero anular el anuncio) 
+Los datos básicos del proceso de licitación 
+- Tipo de procedimiento (Abierto; Restringido; etc.) 
+- Sistema de contratación (Establecimiento de acuerdo marco; Basado en 
+Acuerdo Marco; etc.) 
+- Tipo Tramitación (Ordinaria/Emergencia/Urgente) 
+- Tipo Tramitación del gasto (Ordinaria/Anticipada) 
+- Modo de presentación de ofertas 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+Anuncio de pliegos : No se permite modificar los siguientes datos ( Para poder 
+modificarlos habría que anular o rectificar los anuncios publicados previamente seg ún 
+los casos) 
+--- p46
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 46  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Los datos básicos del proceso de licitación 
+- Tipo de procedimiento (Abierto; Restringido; etc.) 
+- Sistema de contratación (Establecimiento de acuerdo marco; Basado en 
+Acuerdo Marco; etc.) 
+- Tipo Tramitación (Ordinaria/Emergencia/Urgente) 
+- Tipo Tramitación del gasto (Ordinaria/Anticipada) 
+- Modo de presentación de ofertas 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+- Descripción del objeto del Contrato 
+- Valor estimado del contrato 
+- Presupuesto base sin impuestos 
+- Presupuesto base con impuestos 
+Sobres que deben presentar los licitadores 
+ 
+Anuncios de adjudicaci ón, renuncia, desistimiento, desierto : No se permite 
+modificar los siguientes datos  (Para poder modificarlos habría que anular o rectificar los 
+anuncios publicados previamente según los casos) 
+ 
+Los datos básicos del proceso de licitación 
+- Tipo de procedimiento (Abierto; Restringido; etc.) 
+- Sistema de contratación (Establecimiento de acuerdo marco; Basado en 
+Acuerdo Marco; etc.) 
+- Tipo Tramitación (Ordinaria/Emergencia/Urgente) 
+- Tipo Tramitación del gasto (Ordinaria/Anticipada) 
+- Modo de presentación de ofertas 
+--- p47
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 47  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+- Descripción del objeto del Contrato 
+- Valor estimado del contrato 
+- Presupuesto base sin impuestos 
+- Presupuesto base con impuestos 
+Sobres que deben presentar los licitadores 
+Anuncio de formalización: No se permite modificar los siguientes datos  (Para poder 
+modificarlos habría que anular o rectificar los anuncios publicados previamente seg ún 
+los casos) 
+Los datos básicos del proceso de licitación 
+- Tipo de procedimiento (Abierto; Restringido; etc.) 
+- Sistema de contratación (Establecimiento de acuerdo marco; Basado en 
+Acuerdo Marco; etc.) 
+- Tipo Tramitación (Ordinaria/Emergencia/Urgente) 
+- Tipo Tramitación del gasto (Ordinaria/Anticipada) 
+- Modo de presentación de ofertas 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+- Descripción del objeto del Contrato 
+- Valor estimado del contrato 
+- Presupuesto base sin impuestos 
+- Presupuesto base con impuestos 
+Sobres que deben presentar los licitadores 
+--- p48
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 48  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Anuncio de Modificación de contrato: No se permite modificar los siguientes datos 
+(Para poder modificarlos habr ía que anular o rectificar los anuncios publicados 
+previamente según los casos) 
+Información sobre el objeto del contrato 
+- Tipo de Contrato 
+- Subtipo de contrato 
+- Descripción del objeto del Contrato 
+- Valor estimado del contrato 
+- Presupuesto base sin impuestos 
+- Presupuesto base con impuestos 
+- Tipo de Contrato 
+- Subtipo  de contrato 
+Datos de la resolución: Adjudicatario, Importes de adjudicación, etc. 
+Plazo de ejecución original 
+4.5 Estados 
+Este espacio virtual pasa por una serie de estados según el avance de la licitación que en 
+caso de la publicación a través de B2B se reflejan en la siguiente figura: 
+ 
+--- p49
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 49  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+ 
+La publicación de anuncios de modificación de contrato no modifica el estado de la 
+licitación. 
+Los eventos que provocan los cambios de estado se recogen en la siguiente tabla: 
+ 
+ESTADO CONDICIÓN 
+Estado 0. 
+No Creada - 
+Estado 1. Creada 
+El Espacio Virtual de la Licitación ha sido creado en la Plataforma, 
+pero no es visible por el público porque todavía no se ha 
+publicado ningún anuncio relativo a la misma. 
+Estado 2. 
+Pre-Anunciada El único anuncio publicado no anulado es el Anuncio de 
+Información Previa 
+
+--- p50
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 50  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ESTADO CONDICIÓN 
+Estado 3. 
+Publicada No se ha superado la fecha l ímite de presentaci ón de ofertas 
+publicada en el Anuncio de Licitación y/o Pliegos 
+No existe ningún anuncio de adjudicación, desierto, 
+formalización, renuncia, o desistimiento no anulado. 
+Estado 4. 
+En Evaluación Ha finalizado el plazo de presentación de ofertas publicado en el 
+Anuncio de Licitación y/o Pliegos. 
+No existe ningún anuncio de adjudicación, desierto, 
+formalización, renuncia, o desistimiento no anulado.  
+Estado 5. 
+Adjudicada 
+Parcialmente 
+Licitación por lotes para la que se han publicado adjudicaciones 
+de no todos los lotes y no existe ninguno   formalizado ni 
+desierto en un anuncio no anulado 
+ 
+Estado 6. 
+Adjudicada Todos los lotes o el expediente completo se han adjudicado. 
+No existe ningún anuncio de formalización no anulado. 
+Estado 7. 
+Resuelta 
+Parcialmente 
+Al menos un lote se encuentra en estado Desierto o 
+Formalizado pero no lo están todos, dentro de los anuncios no 
+anulados. 
+Estado 8. 
+Resuelta  Todos los lotes o el expediente completo se encuentran en 
+estado “Desierto” o ”Formalizado” en los anuncios no anulados, 
+y en el caso de los desiertos, haya finalizado el plazo para la 
+interposición de recursos.  
+Estado 9. 
+Anulada Todos los anuncios publicados en la licitación han sido anulados.. 
+Hay que tener en cuenta que cuando se publica un anuncio de licitación, formalización, 
+renuncia, desierto o desistimiento con envío al DOUE, la publicación del anuncio en el 
+perfil del contratante no se produce de forma inmediata, y la evolución del estado no se 
+produce hasta que la publicación del anuncio en el perfil no es efectiva.  En este caso, si 
+no se había publicado ningún anuncio relativo a la licitación, esta queda en estado 
+CREADA hasta que la publicación en el perfil del contratante se hace efectiva. 
+La anulación de un anuncio  afecta a todo el historial de rectificaciones del mismo.  
+Además, la anulación de un anuncio también produce cambios en el  estado de la 
+--- p51
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 51  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+licitación. Por ejemplo, si se trata de un expediente sin lotes y se publica la anulación del 
+anuncio de formalización, la licitación vuelve al estado “Adjudicada”. La siguiente imagen 
+muestra el flujo de estados de las anulaciones de anuncios: 
+ 
+Estados en procedimientos BAM y BSDA 
+En los procedimientos Basados en Acuerdo Marco (BAM) y Basados en Sistema 
+Dinámico de Adquisición (BSDA) , la publicación del anuncio de adjudicación 
+provoca cambios específicos en el estado del expediente: 
+• Expedientes sin lotes ni categorías : 
+La publicación del anuncio de adjudicación hace que el expediente transite 
+directamente al estado Resuelta, ya que en estos procedimientos la adjudicación 
+perfecciona el contrato y no requiere formalización. 
+
+--- p52
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 52  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+• BSDA con varias categorías: 
+o Si todas las categorías se adjudican, el expediente pasa a estado Resuelta. 
+o Si solo se adjudican algunas categorías, el expediente pasa a estado 
+Resuelta Parcialmente. 
+• Rectificación de anuncios : 
+Las rectificaciones no modifican el estado del expediente, que permanece en el 
+estado en el que se encontraba antes de la rectificación. 
+• Anulación de anuncios de adjudicación: 
+o En BAM, la anulación del anuncio de adjudicación hace que el expediente 
+pase de Resuelta a Evaluación. 
+o En BSDA: 
+▪ Si el expediente tiene una sola categoría, o si todas las categorías 
+anulan su adjudicación, el estado pasa a Evaluación. 
+▪ Si el expediente tiene varias categorías y solo algunas anulan su 
+adjudicación, el estado pasa a Resuelta Parcialmente. 
+ 
+ 
+A continuación se indican las interacciones B2B posibles en los distintos estados del 
+Espacio Virtual de Licitación , y las condiciones que se deben cumplir para que se 
+produzca el cambio de estado. 
+Las peticiones B2B que se realicen sobre una licitación con un estado sobre el que esta 
+no aplique producirán un error. (Ver Documento Técnico)  
+ 
+Estado 0. Licitación No Creada  
+ó Estado 1. Licitación Creada 
+Interacción B2B Resultado 
+Solicitud de publicación del anuncio 
+de información previa  
+Se crea el EVL de la licitación a partir de los datos existentes 
+en el anuncio si no lo estuviera, y se publica el mismo. 
+--- p53
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 53  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Si la licitación no estuviera creada, p or defecto se asigna el 
+expediente al Responsable. Es posible indicar que el 
+expediente se asigna a otro usuario 
+Se envía el anuncio a DOUE para su publicación si ha sido 
+solicitado por el Órgano de Contratación. 
+Se publica el anuncio en el perfil del contratante. 
+La licitación pasa a estado PRE-ANUNCIADA. 
+Solicitud de publicación del anuncio 
+de licitación  
+Se crea el EVL de la licitación a partir de los datos existentes 
+en el anuncio si no lo estuviera, y se publica el mismo. 
+Si la licitación no estuviera creada, p or defecto se asigna el 
+expediente al Responsable. Es posible indicar que el 
+expediente se asigna a otro usuario 
+Se envía el anuncio al BOE y/o DOUE para su publicación, si 
+ha sido solicitado por el Órgano de Contratación. 
+La licitación pasa a estado PUBLICADA. 
+Solicitud de información sobre el 
+estado actual del espacio virtual de 
+licitación en PLCSP 
+Se responde informando de que no existe el expediente. 
+Solicitud de publicación del anuncio 
+de adjudicación , desierto, renuncia 
+o desistimiento 
+Se crea el EVL de la licitación a partir de los datos existentes 
+en el anuncio si no lo estuviera, y se publica el mismo. 
+Si la licitación no estuviera creada, p or defecto se asigna el 
+expediente al Responsable. Es posible indicar que el 
+expediente se asigna a otro usuario 
+Se publica el anuncio en PLCSP. 
+En procedimientos negociados sin publicidad, s e envía el 
+Anuncio de Transparencia Voluntaria  al DOUE para su 
+publicación, si ha sido solicitado por el Órgano de 
+Contratación, el anuncio de licitación no se envió al DOUE,  
+el contrato está adjudicado o hay lotes adjudicados 
+--- p54
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 54  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por 
+lotes, quedan lotes sin adjudicar y no existe ninguno 
+formalizado ni desierto, renunciado o desistido. 
+• ADJUDICADA: el expediente completo o todos los 
+lotes han sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, 
+al menos un lote se encuentra formalizado o desierto y 
+el expediente completo no está formalizado, desierto, 
+renunciado, o desistido. 
+RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+•  
+Estado 2. Pre-Anunciada 
+Interacción B2B Resultado 
+Solicitud de rectificación del 
+anuncio de información previa  
+Se envía la rectificación al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación. 
+Se publica la rectificación en el portal de la PLCSP, indicando en 
+la Plataforma que “Existen modificaciones en el anuncio de 
+información previa”.  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación continúa en estado PREANUNCIADA 
+Solicitud de publicación del 
+anuncio de licitación 
+Se envía el anuncio al BOE y/o DOUE para su publicación, si ha 
+sido solicitado por el Órgano de Contratación. 
+Se publica en anuncio de licitación en el portal de la PLCSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación pasa a estado PUBLICADA. 
+--- p55
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 55  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Solicitud de publicación del 
+anuncio de adjudicación , 
+desierto, renuncia o 
+desistimiento 
+Se publica el anuncio en PLCSP.  
+En procedimientos negociados sin publicidad, se envía el Anuncio 
+de Transparencia Previa Voluntaria al DOUE para su publicación, 
+si ha sido solicitado por el Órgano de Contratación , el anuncio 
+de licitación no se envió al DOUE,  el contrato está adjudicado o 
+hay lotes adjudicados. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+quedan lotes sin adjudicar y no existe ninguno formalizado ni 
+desierto. 
+• ADJUDICADA: el expediente completo o todos los lotes han 
+sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado, desierto,  y el 
+expediente completo no está formalizado, desierto, 
+renunciado o desistido  
+RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+• Se devuelve el estado PREANUNCIADA. 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+El DOUE no admite la anulación de anuncios de información 
+previa 
+--- p56
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 56  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Solicitud de Anulación de 
+Anuncio Previo 
+Se publica la anulación del Anuncio Previo en el portal de la 
+PLCSP  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación pasa a estado ANULADA 
+ 
+Estado 3. Publicada 
+Interacción B2B Resultado 
+Solicitud de rectificación del 
+anuncio de licitación 
+Se envía la rectificación del anuncio al BOE y/o DOUE para su 
+publicación, si ha sido solicitado por el Órgano de Contratación. 
+Se publica la rectificación en el portal de la PLCSP, y se indica que 
+“Existen modificaciones en el anuncio de licitación”. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado PUBLICADA si la fecha límite de 
+presentación de ofertas es posterior a la fecha actual. 
+La licitación pasa a estado EVALUACIÓN si la fecha límite de 
+presentación de ofertas es anterior a la fecha actual. 
+Solicitud de publicación de 
+documento pliegos, ó 
+rectificación de pliegos ya 
+publicados 
+Se publica el documento pliegos en el portal de la PLCSP. 
+Si los ficheros llegan embebidos en el documento pliegos se 
+extraen del XML, y se publican en una URL de PLCSP. Se regenera 
+el documento pliegos haciendo referencia a la URL de publicación 
+en PLCSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+Si ya existía un documento pliegos publicado en PLCSP para este 
+EVL se indica que “Existen modificaciones en los pliegos” 
+--- p57
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 57  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+La licitación se queda en estado PUBLICADA si la fecha límite de 
+presentación de ofertas es posterior a la fecha actual. 
+La licitación pasa a estado EVALUACIÓN si la fecha límite de 
+presentación de ofertas es anterior a la fecha actual. 
+Solicitud de publicación del 
+anuncio de adjudicación , 
+desierto, renuncia o 
+desistimiento  
+Se publica el anuncio en PLCSP. 
+En procedimientos negociados sin publicidad, se envía el Anuncio 
+de Transparencia Previa Voluntaria al DOUE para su publicación, 
+si ha sido solicitado por el Órgano de Contratación , el anuncio 
+de licitación no se envió al DOUE, y el contrato está adjudicado 
+o hay lotes adjudicados. 
+Se envía el anuncio  al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación y si la licitación ha 
+quedado desierta, renunciada o desistida o hay lotes desiertos, y 
+el anuncio de licitación se ha publicado en el DOUE a través de 
+PLACSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+quedan lotes sin adjudicar y no existe ninguno formalizado , 
+desierto, renunciado o desistido. 
+• ADJUDICADA: el expediente completo o todos los lotes han 
+sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto y el 
+expediente completo no está formalizado, desierto, 
+renunciado o desistido 
+• RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+--- p58
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 58  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado PUBLICADA. 
+Solicitud de Anulación de 
+Anuncio de Licitación 
+Se envía la petición de anulación de publicación del anuncio de 
+licitación al BOE si ha sido solicitado por el Órgano de 
+Contratación y su estado lo permite 
+Se envía un anuncio  al DOUE informando de la anulación del 
+anuncio de licitación, si ha sido solicitado por el Órgano de 
+Contratación. 
+Se publica la anulación del Anuncio de Licitación en el portal de 
+la PLCSP  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación pasa a estado: 
+• PREANUNCIADA: si se publicó anuncio previo 
+• ANULADA: si no se publicó anuncio previo 
+Solicitud de Anulación de 
+Anuncio de Pliegos 
+Se publica la anulación del Anuncio de Pliegos en el portal de la 
+PLCSP  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en el estado PUBLICADA, ya que 
+continuaría publicado el Anuncio de Licitación 
+Estado 4. En Evaluación 
+Interacción B2B Resultado 
+Solicitud de rectificación del 
+anuncio de licitación 
+Se envía la rectificación del anuncio al BOE y/o DOUE para su 
+publicación, si ha sido solicitado por el Órgano de Contratación. 
+Se publica la rectificación en el portal de la PLCSP, y se indica que 
+“Existen modificaciones en el anuncio de licitación”. 
+--- p59
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 59  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado EVALUACIÓN si la fecha límite 
+de presentación de ofertas es anterior a la fecha actual 
+Se pasa al estado PUBLICADA si se cambia la fecha límite de 
+presentación de ofertas a una fecha futura. 
+Solicitud de publicación de 
+documento pliegos, ó 
+rectificación de pliegos ya 
+publicados 
+Se publica el documento pliegos en el portal de la PLCSP. 
+Si los ficheros llegan embebidos en el documento pliegos se 
+extraen del XML, y se publican en una URL de PLCSP. Se regenera 
+el documento pliegos haciendo referencia a la URL de publicación 
+en PLCSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+Si ya existía un documento pliegos publicado en PLCSP para este 
+EVL se indica que “Existen modificaciones en los pliegos” 
+Solicitud de publicación del 
+anuncio de adjudicación , 
+desierto, renuncia o 
+desistimiento  
+Se publica el anuncio en PLCSP. 
+En los procedimientos negociados sin publicidad, s e envía el 
+Anuncio de Transparencia Previa Voluntaria  al DOUE para su 
+publicación, si ha sido solicitado por el Órgano de Contratación, 
+el anuncio de licitación no se envió al DOUE,  y el expediente o 
+alguno de los lotes incluidos en el anuncio ha resultado 
+adjudicado. 
+Se envía el anuncio  al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación y si la licitación ha 
+quedado desierta, renunciada o desistida o hay lotes desiertos, y 
+el anuncio de licitación se ha publicado en el DOUE a través de 
+PLACSP. 
+ 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+--- p60
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 60  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+quedan lotes sin adjudicar y no existe ninguno formalizado ni 
+desierto. 
+• ADJUDICADA: el expediente completo o todos los lotes han 
+sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto, y el 
+expediente completo no está formalizado, desierto, 
+renunciado o desistido 
+• RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado EN EVALUACIÓN. 
+Solicitud de Anulación de 
+Anuncio de Licitación 
+Se envía la petición de anulación de publicación del anuncio de 
+licitación al BOE si ha sido solicitado por el Órgano de 
+Contratación y su estado lo permite 
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de licitación, si ha sido solicitado por el Órgano de 
+Contratación. 
+Se publica la anulación del Anuncio de Licitación en el portal de 
+la PLCSP  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación pasa a estado: 
+• PREANUNCIADA: si se publicó anuncio previo 
+• ANULADA: si no se publicó anuncio previo 
+--- p61
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 61  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Solicitud de Anulación de 
+Anuncio de Pliegos 
+Se publica la anulación del Anuncio de Pliegos en el portal de la 
+PLACE  
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación permanece en el estado EN EVALUACIÓN, ya que 
+continúa publicado el anuncio de licitación y no se ha modificado 
+la fecha límite de presentación de ofertas. 
+Estado 5. Adjudicada parcialmente 
+Interacción B2B Resultado 
+Solicitud de publicación ó 
+rectificación del anuncio de 
+adjudicación, desierto, 
+renuncia o desistimiento. 
+Se publica el anuncio de adjudicación en PLCSP. Se indica que 
+“Existen modificaciones en el anuncio”, si el anuncio corresponde 
+a un lote cuya resolución se había publicado previamente. 
+En los procedimientos negociados sin publicidad, s e envía el 
+Anuncio de Transparencia Previa Voluntaria, o la modificación de 
+este anuncios si ya hubiera sido enviado con el anuncio anterior,  
+al DOUE para su publicación, si ha sido solicitado por el Órgano 
+de Contratación, el anuncio de licitación no se envió al DOUE, y 
+el expediente o alguno de los lotes incluidos en el anuncio ha 
+resultado adjudicado. 
+Se envían el anuncio al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación y si la licitación ha 
+quedado desierta, renunciada o desistida o hay lotes desiertos, y 
+el anuncio de licitación se ha publicado en el DOUE a través de 
+PLACSP. 
+ 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+--- p62
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 62  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+quedan lotes sin adjudicar y no existe ninguno formalizado ni 
+desierto. 
+• ADJUDICADA: el expediente completo o todos los lotes han 
+sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto, y el 
+expediente completo no está formalizado, desierto, 
+renunciado o desistido 
+• RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+Solicitud de publicación del 
+anuncio de formalización. 
+Se envía el anuncio al BOE y/o DOUE para su publicación, si ha 
+sido solicitado por el Órgano de Contratación. 
+Se publica en anuncio de formalización en el portal de la PLCSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+Si se ha formalizado el contrato, o todos los lotes  estuvieran 
+formalizados o desiertos, o el expediente renunciado o desistido, 
+se pasa a estado RESUELTA. (Si hubiera lotes adjudicados se 
+pasaría a estado RESUELTA PARCIALMENTE) 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado ADJUDICADA PARCIALMENTE. 
+Solicitud de anulación de 
+anuncio de adjudicació n o  
+desierto 
+Se publica el anuncio de anulación de adjudicación o  desierto en 
+PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de  transparencia previa voluntaria o procedimiento 
+incompleto(desierto), si ha sido solicitado por el Órgano de 
+Contratación. 
+--- p63
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 63  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado ni desierto. 
+• EN EVALUACIÓN: si la licitación es por lotes, no hay ningún 
+lote adjudicado o desierto y se publicó anuncio de licitación , 
+y se ha superado la fecha límite de presentación de ofertas.  
+• PUBLICADA: si la licitación es por lotes, no hay ningún lote 
+adjudicado o desierto y se publicó el anuncio de licitación, y 
+no se ha superado la fecha límite de presentación de ofertas 
+• PREANUNCIADA: si la licitación es por lotes, no hay ningún 
+lote adjudicado o desierto y se publicó anuncio previo pero 
+no se publicó anuncio de licitación. 
+• ANULADA: si la licitación es por lotes, no hay ningún lote 
+adjudicado o desierto y no se publicó anuncio previo ni de 
+licitación. 
+Solicitud de publicación de 
+anuncio de modificación de 
+contrato 
+Se publica el anuncio de modificación de contrato en PLCSP.  
+ La licitación permanece en el mismo estado. 
+Estado 6. Adjudicada  
+Interacción B2B Resultado 
+Solicitud de publicación o 
+rectificación del anuncio de 
+adjudicación o desierto, 
+renuncia o desistimiento. 
+Se publica la rectificación en PLCSP. Se indica que “Existen 
+modificaciones en el anuncio de adjudicación”, si el anuncio 
+corresponde a un lote cuya adjudicación se había publicado 
+previamente. 
+--- p64
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 64  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+En los procedimientos negociados sin publicidad, s e envía el 
+Anuncio de Transparencia Previa Voluntaria, o la rectificación del 
+mismo si ya hubiera sido enviado anteriormente, al DOUE para 
+su publicación, si ha sido solicitado por el Órgano de 
+Contratación,. y el anuncio de licitación no se envió al DOUE, y 
+el resultado del expediente o alguno de los lotes que figuran en 
+el anuncio es Adjudicado. 
+Se envía el anuncio  al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación y si la licitación ha 
+quedado desierta, renunciada o desistida o hay lotes desiertos, y 
+el anuncio de licitación se ha publicado en el DOUE a través de 
+PLACSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA: el expediente completo o todos los lotes han 
+sido adjudicados 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o, desierto, y el 
+expediente completo no está formalizado, desierto, en 
+renuncia o desistimiento 
+• RESUELTA: si la licitación, o todos sus lotes han quedado 
+formalizados, desiertos, en renuncia, o en desistimiento 
+Solicitud de publicación del 
+anuncio de formalización. 
+Se envía el anuncio al BOE y/o DOUE para su publicación, si ha 
+sido solicitado por el Órgano de Contratación. 
+Se publica en anuncio de formalización en el portal de la PLCSP. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+--- p65
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 65  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Si se ha formalizado el contrato, o todos los lotes estuvieran 
+formalizados o desiertos, se pasa a estado RESUELTA. 
+Si alguno de los lotes no tuviera ninguno de los estados 
+anteriores, se pasaría a estado RESUELTA PARCIALMENTE. 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado ADJUDICADA. 
+Solicitud de anulación de 
+anuncio de adjudicación o 
+desierto 
+Se publica el anuncio de anulación de adjudicación o  desierto en 
+PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de transparencia previa voluntaria o procedimiento 
+incompleto, si ha sido solicitado por el Órgano de Contratación. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado ni desierto. 
+• EN EVALUACIÓN: se publicó anuncio de licitación y la 
+licitación no tiene lotes o si los tiene no hay ningún lote 
+adjudicado o desierto, y se ha superado la fecha límite de 
+presentación de ofertas. 
+• PUBLICADA: se publicó anuncio de licitación y la licitación no 
+tiene lotes o si los tiene no hay ningún lote adjudicado o 
+desierto, y todavía no se ha superado la fecha límite de 
+presentación de ofertas  
+• PREANUNCIADA: se publicó anuncio de previo pero no de 
+licitación, y la licitación no tiene lotes o si los tiene no hay 
+ningún lote adjudicado o desierto. 
+--- p66
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 66  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+• ANULADA: no se publicó anuncio de previo ni de licitación, 
+la licitación no tiene lotes o si los tiene no hay ningún lote 
+adjudicado o desierto. 
+Solicitud de publicación de 
+anuncio de modificación de 
+contrato 
+Se publica el anuncio de modificación de contrato en PLCSP.  
+Se envía el anuncio al DOUE si hubiera sido solicitado por el 
+Órgano de Contratación 
+ La licitación permanece en el mismo estado. 
+Estado 7. Resuelta Parcialmente 
+Interacción B2B Resultado 
+Solicitud rectificación del 
+anuncio de adjudicación , 
+desierto, renuncia o 
+desistimiento. 
+Se publica la rectificación del anuncio en PLCSP. Se indica que 
+“Existen modificaciones en el anuncio”, si el anuncio corresponde 
+a un lote cuya adjudicación se había publicado previamente. 
+En los procedimientos negociados sin publicidad, s e envía el 
+Anuncio de Transparencia Previa Voluntaria, o la rectificación si 
+ya se hubiera enviado previamente, al DOUE para su publicación, 
+si ha sido solicitado por el Órgano de Contratación,  el anuncio 
+de licitación no se envió al DOUE, y el expediente o alguno de 
+los lotes incluidos en el anuncio ha resultado adjudicado.. 
+Se envía el anuncio al DOUE para su publicación, si ha sido 
+solicitado por el Órgano de Contratación y  si la licitación ha 
+quedado desierta, renunciada o desistida o hay lotes desiertos, y 
+el anuncio de licitación se ha publicado en el DOUE a través de 
+PLACSP. 
+ 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+--- p67
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 67  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Si la licitación, o todos los lotes estuvieran formalizados, 
+desiertos, renunciados o desistidos, se pasa a estado RESUELTA. 
+Si alguno de los lotes no estuviera formalizado o desierto , 
+continuaría en estado RESUELTA PARCIALMENTE. 
+Solicitud de publicación del 
+anuncio de formalización. 
+Se envía el anuncio al BOE y/o DOUE para su publicación, si ha 
+sido solicitado por el Órgano de Contratación. 
+Se publica en anuncio de formalización en el portal de la PLCSP. 
+Se indica que “Existen modificaciones en el anuncio de 
+formalización”, si el anuncio corresponde a un lote cuya 
+formalización se había publicado previamente. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+Si se han formalizado , o declarado  todos los lotes, se pasa a 
+estado RESUELTA si no es así continua RESUELTA 
+PARCIALMENTE 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado RESUELTA  PARCIALMENTE. 
+Solicitud de anulación de 
+anuncio de adjudicación o 
+desierto 
+Se publica el anuncio de anulación de adjudicación o  desierto en 
+PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de transparencia previa voluntaria o procedimiento 
+incompleto, si ha sido solicitado por el Órgano de Contratación. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado ni desierto. 
+--- p68
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 68  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto. 
+• EN EVALUACIÓN: se publicó anuncio de licitación y si la 
+licitación es por lotes, no hay ningún lote adjudicado , 
+formalizado, desierto, en renuncia o desistimiento,  y se ha 
+superado la fecha límite de presentación de ofertas.  
+• PUBLICADA: se publicó anuncio de licitación y si la licitación 
+es por lotes, no hay ningún lote adjudicado , formalizado  o 
+desierto y todavía no se ha superado la fecha límite de 
+presentación de ofertas 
+• PREANUNCIADA: se publicó anuncio previo pero no de 
+licitación y la licitación es por lotes  pero no hay ningún lote 
+adjudicado o desierto 
+• ANULADA: no se publicó anuncio de previo ni de licitación, 
+la licitación tiene lotes y no hay ningún lote adjudicado o 
+desierto. 
+Solicitud de anulación de 
+anuncio de formalización 
+Se publica el anuncio de anulación de formalización en PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de formalización, si ha sido solicitado por el Órgano de 
+Contratación. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado ni desierto. 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto 
+• ADJUDICADA: si la licitación no tiene lotes o si los tiene 
+están todos adjudicados 
+--- p69
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 69  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Interacción B2B Resultado 
+Solicitud de publicación de 
+anuncio de modificación de 
+contrato 
+Se publica el anuncio de modificación de contrato en PLCSP.  
+Se envía el anuncio al DOUE si lo hubiera solicitado el órgano de 
+contratación 
+ La licitación permanece en el mismo estado. 
+ 
+Estado 8. Resuelta 
+Interacción B2B Resultado 
+Solicitud de rectificación del 
+anuncio de formalización. 
+Se envía la rectificación al BOE y/o DOUE para su publicación, si 
+ha sido solicitado por el Órgano de Contratación. 
+Se publica la rectificación en el portal de la PLCSP. Se indica que 
+“Existen modificaciones en el anuncio de formalización”, si el 
+anuncio se había publicado previamente. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación queda en estado RESUELTA. 
+Solicitud de información sobre 
+el estado actual del espacio 
+virtual de licitación en PLCSP 
+Se devuelve el estado RESUELTA. 
+Solicitud de anulación de 
+anuncio de desierto, renuncia o 
+desistimiento 
+Se publica el anuncio de anulación de desierto, en PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de procedimiento incompleto, si ha sido solicitado por el 
+Órgano de Contratación. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+--- p70
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 70  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado o desierto 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto 
+• EN EVALUACIÓN: si se publicó anuncio de licitación y la 
+licitación no tiene lotes o si los tiene  están todos pendientes 
+de ser resueltos , y se ha superado la fecha límite de 
+presentación de ofertas.  
+• PUBLICADA: si se publicó anuncio de licitación y la licitación 
+no tiene lotes o si los tiene están todos pendientes de ser 
+resueltos, y todavía no se ha superado la fecha límite de 
+presentación de ofertas 
+• PREANUNCIADA: si no se publicó anuncio de licitación pero 
+si previo y la licitación no tiene lotes o si los tiene están todos 
+pendientes de ser resueltos. 
+• ANULADA: si no se publicó anuncio de licitación ni previo y 
+la licitación no tiene lotes o si los tiene están todos pendientes 
+de ser resueltos. 
+Solicitud de anulación de 
+anuncio de formalización 
+Se publica el anuncio de anulación de formalización en PLCSP.  
+Se envía un anuncio al DOUE informando de la anulación del 
+anuncio de formalización, si ha sido solicitado por el Órgano de 
+Contratación. 
+Si se indica en la petición, se reasigna el expediente a otro usuario, 
+si este fuera distinto del que lo tuviera asignado 
+La licitación se queda en estado: 
+• ADJUDICADA PARCIALMENTE si la licitación es por lotes, 
+hay lotes adjudicados, quedan lotes sin adjudicar y no existe 
+ninguno formalizado o desierto. 
+• RESUELTA PARCIALMENTE: si la licitación es por lotes, al 
+menos un lote se encuentra formalizado o desierto. 
+--- p71
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 71  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+• ADJUDICADA: si la licitación no tiene lotes o si los tiene 
+están todos adjudicados 
+Solicitud de publicación de 
+anuncio de modificación de 
+contrato 
+Se publica el anuncio de modificación de contrato en PLCSP.  
+Se envía el anuncio al DOUE si lo hubiera solicitado el órgano de 
+contratación en su petición. 
+ La licitación permanece en el mismo estado. 
+Estado 9. Anulada. 
+Este estado es equivalente a todos los efectos al estado de Creada (Estado 0) excepto 
+que el EVL ya está creado. 
+--- p72
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 72  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+5 Descripción del proceso de licitación  
+ 
+En este apartado se explica el proceso de licitación desde el punto de vista de la 
+interacción sistémica para publicación de anuncios entre la Plataforma de Contratación 
+del Sector Público y el sistema a integrar.  
+ 
+En cada fase del proceso se identifican los posibles puntos de integración sistémica, y los 
+servicios que habría que utilizar en cada punto. Estos servicios se describen en el 
+documento “Servicios web de la Plataforma de Contratación del Sector Público par a 
+Órganos de Contratación. Documento Técnico”. 
+ 
+El proceso de licitación de manera genérica se descompone en las siguientes fases: 
+- Registro  
+- Notificación  
+- Invitación a licitar (e n procedimientos restringidos, negociados, diálogos 
+competitivos, contratos menores y derivados de acuerdo marco) 
+- Recepción de ofertas 
+- Selección de candidatos 
+- Apertura y evaluación de ofertas 
+- Adjudicación del contrato 
+Adicionalmente es posible que el contrato pueda modificarse si así se indica en los 
+pliegos. En los siguientes apartados se identifican las interacciones entre el sistema del 
+OC y la PLCSP. 
+En los diagramas que se presentan en los siguientes apartados se identifican los actores: 
+- Usuarios O.C. Personal encargado de gestionar los expedientes de contratación, 
+usuarios del Sistema de Información del OC. 
+- Sistema de Información del OC.(Sistema OC)  Sistema de información utilizado 
+por los “Usuarios O.C.” para gestionar los expedientes, y que se integrará con 
+la PLCSP a través de B2B.  
+Las acciones indicadas en los diagramas como a ejecutar por el Sistema O.C son 
+responsabilidad del O.C. y será este quien deberá estudiar los medios empleados 
+para llevarlas a cabo. 
+--- p73
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 73  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+- Plataforma de Contratación del Sector Público (PLCSP)  
+• Ofrece los servicios B2B de publicación de anuncios y pliegos, así como 
+servicios de publicación en BOE y DOUE. 
+• Ofrece a los Operadores Económicos servicios de búsqueda de licitaciones, 
+suscripciones a determinadas suscripciones, información sobre la 
+contratación, perfiles del contratante de los OC, etc. 
+- Operadores Económicos. Hacen uso de los servicios de información sobre la 
+contratación de los O.C. usuarios de la PLCSP. 
+- BOE/DOUE: La PLCSP realiza la publicación en BOE y DOUE a petición de los 
+OC. 
+5.1 Registro 
+Como requisito previo a la utilización de los servicios de la PLCSP, es imprescindible 
+que el órgano de contratación dé de alta en el sistema su perfil del contratante. 
+El alta no se puede realizar a través de los servicios B2B, siendo necesario seguir los 
+procedimientos establecidos reglamentariamente según se indica en 
+http://contrataciondelestado.es. 
+Puntos de integración sistémica: Ninguno 
+5.2 Publicación del Anuncio de Información Previa y del Anuncio de 
+Información Previa con reducción de plazos (opcional) 
+Los órganos de contratación podrán publicar un anuncio de informaci ón previa con el 
+fin de dar a conocer, en relación con los contratos de obras, suministros y servicios que 
+tengan proyectado adjudicar en los doce meses siguientes. 
+Los anuncios se publicarán en el «Diario Oficial de la Unión Europea» o en el perfil de 
+contratante del órgano de contrataci ón. En el caso de que la publicaci ón vaya a 
+efectuarse en el perfil de contratante del órgano de contrataci ón, éste deber á 
+comunicarlo previamente a la Comisión Europea por medios electrónicos. 
+Con el anuncio de información previa con reducción de plazos se  permitirá reducir los 
+plazos para la presentación de proposiciones en l os casos recogidos para este anuncio 
+de planificación. 
+Se permite publicar ambos anuncios, de Información previa y de información previa con 
+reducción de plazos. 
+--- p74
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 74  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Estos anuncios podrán ser rectificados y anulados de la misma forma que el resto de los 
+anuncios existentes en PLACSP. 
+Puntos de integración sistémica: 
+ 
+• Crear el Espacio Virtual de la Licitación incluyendo la información básica como 
+el objeto del contrato, valor estimado del contrato, CPV, lugar de ejecución, 
+etc. (ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicar el Anuncio en el perfil del contratante y DOUE a partir de la 
+información contenida en el Espacio Virtual de la Licitación 
+(ServiciosGestonLicitacion.PublishContractFolderNotice) 
+5.3 Configuración de la licitación 
+Antes de convocar la licitaci ón, el órgano de contrataci ón debe configurar las 
+condiciones en las que se desarrollará, incluyendo información relativa a: 
+- Procedimiento de contratación 
+- Fecha límite de presentación de ofertas o solicitudes de participación 
+- Eventos públicos de apertura de ofertas 
+- Lotes, en su caso 
+- Forma de presentación de las ofertas: Manual y/ó Electrónica 
+- Número, tipo y contenido de los sobres 
+- Criterios de selección de candidatos y la forma de acreditar su cumplimiento 
+- Criterios de adjudicación 
+- Información sobre la presentación de recursos 
+- Etc. 
+Puntos de integración sistémica: 
+ 
+• Editar la información del Espacio Virtual 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+5.4 Convocatoria 
+Durante la fase de convocatoria el órgano de contratación da publicidad a la licitación 
+mediante la publicación en la PLCSP de: 
+- Anuncio de Licitación 
+- Pliegos. 
+--- p75
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 75  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+La PLCSP ofrece servicios para la publicación del  Anuncio de Licitación en el Boletín 
+Oficial del Estado (BOE) y el Diario Oficial de la Unión Europea (DOUE), cuya utilización 
+se detalla en la definición de los respectivos servicios de publicación de anuncios. 
+Puntos de integración sistémica: 
+• Consulta la información del Espacio Virtua l de la Licitación  
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Editar la información del Espacio Virtual 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Cargar en el Espacio Virtual de la Licitación los documentos que forman los 
+pliegos (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+Si la convocatoria se realizará mediante la publicación de anuncio y pliegos: 
+ 
+• Publicar el Anuncio a partir de la información contenida en el Espacio Virtual de 
+la Licitación (ServiciosGestonLicitacion.PublishContractFolderNotice) 
+ 
+Si la convocatoria se realizará mediante invitación: 
+ 
+• Publicar el Anuncio a partir de la información contenida en el Espacio Virtual de 
+la Licitación (ServiciosGestonLicitacion.SendContractFolderNotification) 
+ 
+5.5 Creación y entrega de ofertas 
+ 
+Los Licitadores obtienen los Pliegos de prescripciones técnicas y cláusulas 
+administrativas y preparan sus ofertas en base a estos documentos. 
+ 
+Los Licitadores pueden realizar preguntas al Órgano de Contratación  a través de la 
+Plataforma, a las que este puede responder a través de la misma. 
+Los Licitadores envían sus ofertas al órgano de contratación a través de los medios que 
+el órgano de contratación ponga a su disposición , o a través de la Plataforma de 
+Contratación haciendo uso del servicio de licitación electrónica (Ver “Guía de Servicios 
+de Licitación Electrónica para Órganos de Contratación”) 
+Puntos de integración sistémica:  
+• Consultar la información del Espacio Virtual de la Licitación para conocer las 
+preguntas recibidas (ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+--- p76
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 76  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Editar la información del Espacio Virtual de la Licitación para contestar las 
+preguntas recibidas (ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+La realización de preguntas y la elaboración y presentación de ofertas por parte de los 
+Licitadores se puede hacer exclusivamente a través de la interfaz web. 
+ 
+5.6 Selección de candidatos 
+El Órgano de Asistencia (Mesa o Junta de Contratación, u órgano equivalente) selecciona 
+a los candidatos en función de la documentación administrativa aportada o mediante la 
+consulta al ROLECE en caso de que el operador económico hubiera inscrito sus datos 
+en este registro. En este último caso la PLCSP ofrece un servicio para la descargar del 
+certificado del Registro, con la autorización del licitador, con la información inscrita 
+sobre el mismo. 
+A continuación notifica a los operadores económicos mediante sus propios medios, o a 
+través de la propia Plataforma su admisión o exclusión en el procedimiento de 
+adjudicación. 
+En el caso de que la documentación y ofertas se presenten electrónicamente a través de 
+la Plataforma, se ofrecen una serie de herramientas que facilitan al Órgano de Asistencia 
+la apertura y calificación de la documentación administrativa (Ver “Guía de Servicios de 
+Licitación Electrónica”) 
+Puntos de integración sistémica:  
+• Introducir la información relativa a la admisión/exclusión de los licitadores si la 
+forma de presentación no es electrónica a través de la Plataforma de 
+Contratación (ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+ 
+• Enviar la notificación de admisión/exclusión de los licitadores si la forma de 
+presentación no es electrónica a través de la Plataforma de Contratación  
+(ServiciosGestionLicitacionPLACSP.SendContractFolderNotification) 
+ 
+Las operaciones que realiza el Órgano de Asistencia – apertura y evaluación de la 
+documentación administrativa, consulta al ROLECE – se pueden realizar exclusivamente 
+a través de la interfaz web. 
+5.7 Apertura y selección de ofertas 
+El Órgano de Asistencia (Mesa o Junta de Contratación, u órgano equivalente) abre, 
+evalúa y compara las condiciones de las ofertas admitidas.  En el caso de que las ofertas 
+--- p77
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 77  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+se hayan presentado electrónicamente a través de la Plataforma, la apertura se realizará 
+en el propio sistema (Ver “Guía de Servicios de Licitación Electrónica”) Una vez abiertas, 
+el Órgano de Asistencia realizará la propuesta de adjudicación al Órgano de 
+Contratación, que podrá resolver la licitación siguiendo la propuesta, o apartándose de 
+ella en cuyo caso deberá hacerlo de forma motivada. 
+Puntos de integración sistémica:  
+• Consulta de la propuesta de adjudicación, incluyendo la lista ordenada de 
+licitadores con su calificación y contenido de las ofertas abiertas.  
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus y 
+ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+Las operaciones que realiza el Órgano de Asistencia – apertura y evaluación de las 
+ofertas– se pueden realizar exclusivamente a través de la interfaz web. 
+5.8 Requerimiento de documentación al licitador mejor clasificado 
+El órgano de contrataci ón requerir á al licitador que haya presentado la oferta 
+económicamente más ventajosa para que, dentro del plazo correspondiente, presente la 
+documentación justificativa de hallarse al corriente en el cumplimiento de sus 
+obligaciones tributarias y con la Seguridad Social o autorice al órgano de contratación 
+para obtener de forma directa la acreditación de ello, de disponer efectivamente de los 
+medios que se hubiese comprometido a dedicar o adscribir a la ejecución del contrato, 
+y de haber constituido la garantía definitiva que sea procedente. 
+Este requerimiento de documentación se puede realizar a través de la Plataforma. 
+Puntos de integración sistémica:  
+• Consulta la información del Espacio Virtual de la Licitación 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Seleccionar al licitador mejor clasificado 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Enviar la notificación de requerimiento de documentación al licitador mejor 
+clasificado (ServiciosGestionLicitacionPLACSP.SendContractFolderNotification) 
+5.9 Adjudicación, declaración de desierto, renuncia o desistimiento  
+La licitación se podrá resolverse de distintas formas, siendo la más habitual la 
+adjudicación. 
+- Adjudicación  
+--- p78
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 78  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+La adjudicación deberá ser motivada, se notificar á a los candidatos o licitadores y, 
+simultáneamente, se publicará en el perfil de contratante. 
+El OC publica el anuncio de adjudicación mediante la interacción B2B (teniendo en 
+cuenta las Consideraciones sobre lotes  que se indican en este apartado). El anuncio de 
+adjudicación se puede publicar en el DOUE  en el caso de procedimientos negociados 
+sin publicidad de forma voluntaria (A nuncio de Transparencia Previa Voluntaria ). 
+Además, existen otras tres formas posibles de resolver la licitación sin adjudicatario: 
+- Declaración de Licitación Desierta  
+Se realiza la publicación en la PLCSP de la declaración de licitación desierta o de 
+los lotes cuya adjudicación ha quedado desierta mediante la interacción B2B, y si el 
+órgano de contratación lo solicita la PLCSP realiza el envío al DOUE. 
+- Renuncia o Desistimiento  
+En el caso en que el órgano de contratación renuncie a celebrar un contrato para 
+el que haya efectuado la correspondiente convocatoria, o decida reiniciar el 
+procedimiento para su adjudicaci ón, lo notificar á a los candidatos o licitadores, 
+informando también a la Comisi ón Europea de esta decisi ón cuando el contrato 
+haya sido anunciado en el «Diario Oficial de la Unión Europea» 
+Sólo podrá renunciarse a la celebración del contrato por razones de interés público 
+debidamente justificadas en el expediente. En este caso, no podrá promoverse una 
+nueva licitación de su objeto en tanto subsistan las razones alegadas para 
+fundamentar la renuncia. 
+El desistimiento del procedimiento deberá estar fundado en una infracción no 
+subsanable de las normas de preparación del contrato o de las reguladoras del 
+procedimiento de adjudicación, debiendo justificarse en el expediente la 
+concurrencia de la causa. El desistimiento no impedirá la iniciación inmediata de un 
+nuevo procedimiento de licitación. 
+Puntos de integración sistémica: 
+Publicación del anuncio - OPCIÓN 1 . Esta opción es válida únicamente para la 
+publicación de contratos menores. 
+ 
+• Previsualizar  en la Plataforma y en el DOUE el anuncio de adjudicación, 
+desierto,  desistimiento del procedimiento o de renuncia a la celebración del 
+contrato. (ServiciosCODICE2.viewCODICE) 
+• Publicación  en la Plataforma del anuncio de adjudicación, desierto, 
+desistimiento del procedimiento o de renuncia a la celebración del contrato. 
+(ServiciosPublicacionCODICE2.PublishContractAwardNotice) 
+--- p79
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 79  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+Publicación del anuncio  - OPCIÓN 2. Para la publicación de anuncios de todos los 
+procedimientos, incluidos contratos menores. 
+• Consulta de la información contenida en el Espacio Virtual de la Licitación  
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Edición del Espacio Virtual de la Licitación  relativa al resultado de la licitación  
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicación del anuncio de Adjudicación,  Desierto, Renuncia o Desistimiento a 
+partir de la información contenida en el Espacio Virtual de la Licitación, según 
+corresponda (ServiciosGestonLicitacion.PublishContractFolderNotice) 
+ 
+Notificación a los licitadores 
+ 
+• Enviar la notificación a los licitadores a partir de la información contenida en el 
+anuncio publicado.  (ServiciosGestionLicitacionPLACSP.SendContractFolderNotification) 
+5.10 Formalización del contrato  
+La formalización de los contratos se publicará en el perfil de contratante del órgano de 
+contratación indicando, como mínimo, los mismos datos mencionados en el anuncio de 
+la adjudicación. El anuncio puede enviarse al BOE y DOUE si resulta pertinente. 
+ Puntos de integración sistémica:  
+• Consulta de la información contenida en el Espacio Virtual de la Licitación 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Edición del Espacio Virtual de la Licitación  relativa al resultado de la licitación 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicación del anuncio de Formalización 
+(ServiciosGestonLicitacion.PublishContractFolderNotice) 
+5.11 Modificación del contrato  
+El contrato puede ser modificado c uando así se haya previsto en los pliegos o en el 
+anuncio de licitación o en los casos y con los límites establecidos en la normativa. 
+Cuando se produce tal modificación el órgano de contratación puede publicar un 
+anuncio de modificación de contrato en su perfil de contratante, y enviarlo al DOUE 
+si resulta pertinente. 
+--- p80
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 80  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Cada anuncio se refiere a un único contrato, es decir: 
+• En las licitaciones sin lotes cada anuncio se referirá a un adjudicatario. 
+• En las licitaciones con lotes cada anuncio se referirá a un único 
+lote/adjudicatario. Esto se traduce en que en el anuncio sólo aparecerá la 
+información de ese lote. 
+El anuncio de modificaciones de contrato sólo podrá ser publicado cuando se haya 
+publicado el anuncio de adjudicación correspondiente.  
+Puntos de integración sistémica:  
+• Consulta de la información contenida en el Espacio Virtual de la Licitación 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Edición del Espacio Virtual de la Licitación  relativa a la modificación del contrato 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicación del Anuncio de Modificación  de Contrato 
+(ServiciosGestonLicitacion.PublishContractFolderNotice) 
+ 
+• Consideraciones sobre lotes 
+Los anuncios publicados a lo largo de la vida del expediente deben ser coherentes en 
+cuanto al número de lotes. Si no se publica la estructura de lotes en el anuncio de 
+licitación, no podrá realizarse la adjudicación por lotes. 
+En aquellas licitaciones para las que se han definido lotes en los anuncios de licitación 
+deben tenerse en cuenta las siguientes consideraciones a la hora de proceder a la 
+adjudicación: 
+1. Los expedientes por lotes pueden ser renunciados o desistidos. La resolución 
+del expediente como Renunciado o Desistido se hace del expediente completo 
+y no de los lotes independientemente. Está previsto realizar una mejora para 
+permitirlo.  
+2. Los lotes deben adjudicarse o declararse desiertos. En los anuncios de 
+adjudicación, sólo las declaraciones de desierto son publicadas en DOUE. 
+3. Los lotes adjudicados deben ser formalizados. Los anuncios de formalizaci ón 
+pueden enviarse a BOE y DOUE  para la publicación del anuncio 
+corespondiente. 
+4. Dependiendo de si la adjudicación se produce de manera simultánea o en 
+momentos diferentes , los anuncios pueden contener información sobre 
+--- p81
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 81  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+resoluciones/formalizaciones parciales (resoluciones que no afectan a todos los 
+lotes que componen el expediente) o completas (de todos los lotes del 
+expediente). El caso más general es la publicación de un único anuncio que 
+contenga toda la información de todos los lotes.  
+Con el anuncio de adjudicación la licitación pasará el estado: 
+• Adjudicada: Si todos los lotes de la licitación se encuentran en estado 
+“Adjudicado”. 
+• Adjudicada Parcialmente: Si no todos los lotes de la licitación se encuentran en 
+estado “Adjudicado” y ninguno de ellos está en estado “Desierto” ni 
+“Formalizado”. 
+• Resuelta Parcialmente: Si existe algún lote en estado “Desierto” o “Formalizado”. 
+5.12 Finalización del contrato  
+Como su nombre indica, el anuncio de finalización del contrato se publica cuando se ha 
+completado el contrato.  
+Incluirá algunos datos como las fechas de inicio y fin efectivas, el importe pagado, 
+penalizaciones, número de p rórrogas, entre otros campos. El  órgano de contratación 
+puede publicar un anuncio de finalización de contrato en su perfil de contratante, no se 
+envía a BOE y por el momento, no es posible su remisión a DOUE. 
+Es un Anuncio de carácter voluntario.  
+Disponible en todos los procedimientos y en contratos menores. 
+De forma análoga a las modificaciones de contrato, cada anuncio de finalización se refiere 
+a un único contrato, es decir: 
+• En las licitaciones sin lotes cada anuncio se referirá a un adjudicatario. 
+• En las licitaciones con lotes cada anuncio se referirá a un único 
+lote/adjudicatario. Esto se traduce en que en el anuncio sólo aparecerá la 
+información de ese lote. 
+Los anuncios de finalización de contrato podrán ser rectificados y anulados de la misma 
+forma que el resto de los anuncios existentes en PLACSP. 
+ 
+Puntos de integración sistémica:  
+• Consulta de la información contenida en el Espacio Virtual de la Licitación 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+--- p82
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 82  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+• Edición del Espacio Virtual de la Licitación relativa a la modificación del contrato 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicación del Anuncio de Finalización  de Contrato 
+(ServiciosGestonLicitacion.PublishContractFolderNotice) 
+5.13 Previsualización de anuncios mediante servicios de segunda generación 
+En los expedientes y contratos menores que se vayan a publicar utilizando servicios 
+de segunda generación, se permite la previsualización de anuncios antes de su 
+publicación en PLACSP y en el Diario Oficial de la Unión Europea. 
+Puntos de integración sistémica:  
+• Previsualización de anuncios de expedientes , y para contratos menores que no 
+se publiquen mediante el servicio PublishContractAwardNotice 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNotice) 
+ 
+--- p83
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 83  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+6 Descripción del proceso para otras publicaciones 
+6.1 Encargos a medios propios 
+En este apartado se explica el proceso de publicación referente a los encargos a medios 
+propios personificados desde el punto de vista de la interacción sistémica entre la 
+Plataforma de Contratación del Sector Público y el sistema a integrar.  
+ 
+En cada fase del proceso se identifican los posibles puntos de integración sistémica, y los 
+servicios que habría que utilizar en cada punto. Estos servicios se describen en el 
+documento “Servicios web de la Plataforma de Contratación del Sector Público par a 
+Órganos de Contratación. Documento Técnico”. 
+El proceso de publicación de anuncios referente a los encargos a medios propios 
+personificados de manera genérica se descompone en las siguientes fases: 
+- Configuración del encargo 
+- Formalización 
+- Posibles prórrogas 
+- Documentación del encargo 
+6.1.1 Configuración del encargo 
+Antes de publicar el encargo a medio propio, el órgano de contratación debe configurar 
+las condiciones en las que se desarrollará, incluyendo información relativa a: 
+- Identificador del encargo 
+- Tipo del encargo (Servicios, Suministros, Obras…) 
+- Objeto del encargo 
+- Importe del encargo sin impuestos y con impuestos 
+- Fecha de formalización del encargo 
+- Fecha de formalización del encargo (en años, meses o días) 
+- País 
+- NUTS 
+- Datos del medio propio (NIF, Nombre, Identificador en PLACSP) 
+- Códigos CPV 
+- Programas de financiación de la UE 
+Puntos de integración sistémica: 
+ 
+• Editar la información del Encargo a Medio Propio 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+--- p84
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 84  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+6.1.2 Formalización 
+Para publicar la formalización de un encargo a medio propio, se deberán tener en cuenta 
+las siguientes condiciones: 
+1. Si el encargo tiene un importe superior a 50.000€, se deberá cargar el 
+documento de formalización del encargo. En caso contrario de ser menor el 
+importe del encargo, su inclusión será opcional 
+2. Se deberá indicar la fecha de formalización del encargo. 
+Antes de publicar la formalización, se permite la previsualización del anuncio a publicar. 
+Publicada la formalización, el estado del encargo pasará a ser ‘Publicado’.  
+Podrá rectificarse el anuncio de formalización en caso de que algunos de los datos del 
+encargo sufran modificaciones. 
+En caso de que se anule el anuncio de formalización, el estado del encargo pasará a ser 
+‘Anulado’, y no se permitirá volver a publicar un nuevo anuncio de formalización de 
+encargo.  
+No estará disponible la publicación de anuncios de formalización en Diarios Oficiales. 
+Puntos de integración sistémica: 
+• Consulta la información del Encargo a Medio Propio 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Editar la información del Encargo a Medio Propio 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Cargar documentos 
+ (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+• Publicar documentos  
+(ServiciosCODICE2.publishGeneralContractDocument) 
+ 
+• Anular documentos publicados 
+(ServiciosCODICE2.CancelGeneralDocument) 
+ 
+• Descargar documentos  
+(ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+ 
+• Publicar, rectificar o anular el anuncio de formalización 
+(ServiciosGestionLicitacionPLACSP.PublicshContractFolderNotice) 
+ 
+• Consultar anuncio de formalización 
+(ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+--- p85
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 85  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+ 
+• Previsualización del anuncio de formalización. 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNotice) 
+ 
+6.1.3 Posibles prórrogas 
+Un encargo puede estar sujeto a una o varias prórrogas. Para publicar el anuncio de 
+prórroga del encargo, se deberán tener en cuenta las siguientes condiciones: 
+1. El encargo deberá tener un anuncio de formalización publicado. 
+2. El encargo deberá tener cargado el documento de justificación de prórroga del 
+encargo. 
+3. Será necesario modificar el importe total del encargo o la duración del mismo. 
+Antes de publicar la prórroga, se permite la previsualización del anuncio a publicar. 
+La publicación o anulación de un anuncio de prórroga no modificará el estado del 
+encargo a medio propio, que seguirá siendo ‘Publicado’. 
+Podrá rectificarse el anuncio de prórroga del encargo en caso de que algunos de los 
+datos sufran modificaciones. 
+No estará disponible la publicación de anuncios de formalización en Diarios Oficiales. 
+Puntos de integración sistémica: 
+• Consulta la información del Encargo a Medio Propio 
+(ServiciosGestionLicitacionPLACSP.GetContractFolderStatus) 
+ 
+• Editar la información del Encargo a Medio Propio 
+(ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Cargar documentos 
+ (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+• Publicar documentos  
+(ServiciosCODICE2.publishGeneralContractDocument) 
+ 
+• Anular documentos publicados 
+(ServiciosCODICE2.CancelGeneralDocument) 
+ 
+• Descargar documentos  
+(ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+ 
+• Publicar, rectificar o anular el anuncio de prórroga del encargo 
+(ServiciosGestionLicitacionPLACSP.PublishContractFolderNotice) 
+ 
+--- p86
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 86  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+• Consultar anuncio de prórroga del encargo 
+(ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+ 
+• Previsualización del anuncio de formalización. 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNotice) 
+6.1.4 Documentación del encargo 
+En caso de que el documento de formalización de encargo se haya cargado y se proceda 
+a la publicación del anuncio de formalización, el documento se publicará 
+automáticamente sin necesidad de utilizar previamente el servicio  de publicación de 
+documentos. De manera análoga sucederá con el documento de prórroga del encargo 
+y la publicación del anuncio de prórroga de encargo. 
+Además de los documentos de formalización del encargo y de justificación de prórroga 
+de encargo, podrán cargarse y publicarse los siguientes documentos: 
+1. Documento de justificación de contratación a terceros. 
+2. Documento de tarifas aplicables al encargo. 
+3. Documento de justificación de anulación del encargo. 
+Puede eliminarse un documento previamente cargado, siempre y cuando no haya sido 
+publicado. 
+Puntos de integración sistémica: 
+ 
+• Cargar documentos 
+ (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+• Eliminar documentos cargados 
+ (ServiciosGestionLicitacionPLACSP.SetContractFolder) 
+ 
+• Publicar documentos  
+(ServiciosCODICE2.publishGeneralContractDocument) 
+ 
+• Anular documentos publicados 
+(ServiciosCODICE2.CancelGeneralDocument) 
+ 
+6.2 Consultas preliminares de mercado 
+En este apartado se explica el proceso de publicación referente a las consultas 
+preliminares de mercado desde el punto de vista de la interacción sistémica entre la 
+Plataforma de Contratación del Sector Público y el sistema a integrar.  
+ 
+En cada fase del proceso se identifican los posibles puntos de integración sistémica, y los 
+servicios que habría que utilizar en cada punto. Estos servicios se describen en el 
+--- p87
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 87  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+documento “Servicios web de la Plataforma de Contratación del Sector Público para 
+Órganos de Contratación. Documento Técnico”. 
+El proceso de publicación de anuncios referente a los encargos a medios propios 
+personificados de manera genérica se descompone en las siguientes fases: 
+- Configuración de la consulta 
+- Publicación de la consulta 
+- Documentación de la consulta 
+6.2.1 Configuración de la consulta 
+Antes de publicar la consulta preliminar de mercado , el órgano de contrataci ón debe 
+configurar las condiciones en las que se desarrollará, incluyendo información relativa a: 
+- Identificador de la consulta 
+- Objeto de la consulta 
+- Fecha de inicio de la consulta 
+- Fecha límite de la respuesta 
+- Dirección de Internet para la presentación 
+- Condiciones o términos de envíos / presentación de respuestas 
+- Idiomas adicionales al español 
+- Tipo de consulta (Consulta abierta o Con selección de participantes). Si se 
+selecciona la opción ‘Con selección de participantes’ se podrá indicar: 
+o Participantes 
+o Motivación de la selección de participantes 
+- Datos de la futura licitación objeto de la consulta preliminar: 
+o Tipo de contrato (Suministros, Servicios, Obras…) 
+o Objeto del contrato 
+o Procedimiento 
+o Códigos CPV 
+Puntos de integración sistémica: 
+ 
+• Editar la información de la Consulta Preliminar de Mercado 
+(ServiciosGestionLicitacionPLACSP.SetPreliminaryMarketConsultation) 
+6.2.2 Publicación de la consulta 
+Para publicar la consulta, se deberá cargar previamente el documento de información 
+detallada de la consulta. 
+Antes de publicar la consulta, se permite la previsualización del anuncio a publicar. 
+--- p88
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 88  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Publicado el anuncio, el estado de la consulta pasará a ser ‘Publicado’.  
+Podrá rectificarse el anuncio de publicación de consulta en caso de que algunos de los 
+datos de la consulta sufran modificaciones. 
+En caso de que se anule el anuncio de publicación de la consulta, el estado de la consulta 
+pasará a ser ‘Anulado’, y no se permitirá volver a publicar un nuevo anuncio de 
+publicación de la consulta.  
+No estará disponible la publicación de anuncios de consulta en Diarios Oficiales. 
+Puntos de integración sistémica: 
+• Consulta la información de la Consulta Preliminar de Mercado 
+(ServiciosGestionLicitacionPLACSP.GetPreliminaryMarketConsultationStatus) 
+ 
+• Editar la información de la Consulta Preliminar de Mercado 
+(ServiciosGestionLicitacionPLACSP.SetPreliminaryMarketConsultation) 
+ 
+• Cargar documentos 
+ (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+• Publicar documentos  
+(ServiciosCODICE2.publishGeneralContractDocument) 
+ 
+• Anular documentos publicados 
+(ServiciosCODICE2.CancelGeneralDocument) 
+ 
+• Descargar documentos  
+(ServiciosGestionLicitacionPLACSP.DownloadDocument) 
+ 
+• Publicar, rectificar o anular el anuncio de consulta 
+(ServiciosGestionLicitacionPLACSP.PublishPreliminaryMarketConsultationNotice) 
+ 
+• Consultar anuncio de publicación de consulta 
+(ServiciosGestionLicitacionPLACSP.GetNoticeInfo) 
+ 
+• Previsualización del anuncio de consulta. 
+(ServiciosGestionLicitacionPLACSP.PreviewContractFolderNotice) 
+ 
+6.2.3 Documentación de la consulta 
+En caso de que el documento de información detallada de la consulta se haya cargado y 
+se proceda a la publicación del anuncio de consulta, el documento se publicará 
+automáticamente sin necesidad de utilizar previamente el servicio de publicación de 
+documentos.  
+--- p89
+Plataforma de Contratación  
+del Sector Público  
+ 
+Servicios web de la Plataforma de Contratación del Sector Público para Órganos de 
+Contratación – Descripción funcional 
+Fecha:  
+18/12/2025 
+ 
+ 
+DGPE_PLACE_WS_OC.DescripcionFuncionalv3.10.docx  Pág. 89  de 89 
+SUBDIRECCIÓN GENERAL DE COORDINACIÓN 
+DE LA CONTRATACIÓN ELECTRÓNICA 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+DIRECCIÓN GENERAL DEL 
+PATRIMONIO DEL ESTADO 
+Además del documento de información detallada de la consulta, podrán cargarse y 
+publicarse los siguientes documentos: 
+1. Informe de actuaciones realizadas 
+2. Anexos de información extra asociada a la consulta 
+3. Justificación de anulación de la consulta 
+Puede eliminarse un documento previamente cargado, siempre y cuando no haya sido 
+publicado. 
+Puntos de integración sistémica: 
+ 
+• Cargar documentos 
+ (ServiciosGestionLicitacionPLACSP.UploadDocument) 
+ 
+• Eliminar documentos cargados 
+ (ServiciosGestionLicitacionPLACSP.SetPreliminaryMarketConsultation) 
+ 
+• Publicar documentos  
+(ServiciosCODICE2.publishGeneralContractDocument) 
+ 
+• Anular documentos publicados 
+(ServiciosCODICE2.CancelGeneralDocument) 
+ 
+ 

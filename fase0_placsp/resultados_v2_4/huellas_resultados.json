@@ -1,0 +1,9 @@
+{
+  "version_programa": "2.4",
+  "nota": "huellas de ficheros por expediente que no se publican; una repetición con los mismos datos y programa debe dar las mismas",
+  "ficheros": {
+    "expedientes_seleccionados.csv": "68a65e4ecac9f7eab377094bf0ea214d545f1d54c8436e245225386eda75d2b8",
+    "candidatos_fin.csv": "a6a57ccee14324c8efa63a31f4bb0edd1728a0965078cacc5b1b72ec97ced1fb",
+    "empates_en_seleccion.csv": "ea0f9194cfd5401fb2a9d85ab7879b193ccbc56cd5294883cc0878d611c4c01e"
+  }
+}

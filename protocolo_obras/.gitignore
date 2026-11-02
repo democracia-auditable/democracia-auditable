@@ -1,0 +1,12 @@
+# Salidas con datos reales de órganos y obras: se generan en cada uso y no se publican.
+obras_protocolo.csv
+lote_*/
+registro.csv
+__pycache__/
+# El borrador público del registro lo publica, tras revisarlo, cada organización; no forma parte del repositorio.
+datos/
+ciclo_estado.json
+pendientes_*.csv
+resumen_ciclo_*.md
+registro_publico*.csv
+.seleccion.lock
