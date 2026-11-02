@@ -18,6 +18,7 @@ No es un paquete que haya que adoptar entero. Puedes leerlo, trocearlo, quedarte
 | Si quieres… | Abre |
 |---|---|
 | Hacerte una idea en pocas páginas | [`documento/Democracia_Auditable_resumen_v0_4_9.pdf`](documento/Democracia_Auditable_resumen_v0_4_9.pdf) |
+| Read the presentation in English | [`documento/Democracia_Auditable_presentation_v0_4_9_EN.pdf`](documento/Democracia_Auditable_presentation_v0_4_9_EN.pdf) (the rest of the repository is in Spanish) |
 | Leer la propuesta completa | [`documento/Democracia_Auditable_v0_4_9.pdf`](documento/Democracia_Auditable_v0_4_9.pdf) |
 | Ver el resultado del estudio explicado | `fase0_placsp/resultados_v2_4/informe.html` (descarga el repositorio y ábrelo con doble clic; en GitHub solo se ve el código) |
 | Ver el informe técnico y las cifras | [`fase0_placsp/resultados_v2_4/informe.md`](fase0_placsp/resultados_v2_4/informe.md) y [`resumen.json`](fase0_placsp/resultados_v2_4/resumen.json) |
@@ -44,7 +45,7 @@ Para ejecutar una carpeta, descarga el repositorio entero y no muevas las carpet
 
 | Carpeta | Qué es | Para ejecutarla necesita |
 |---|---|---|
-| `documento/` | El documento de trabajo (v0.4.9) y su presentación breve, en Markdown y PDF | — |
+| `documento/` | El documento de trabajo (v0.4.9) y su presentación breve (también traducida al inglés), en Markdown y PDF | — |
 | `fase0_placsp/` | **El estudio:** descarga y verificación de los datos, el programa de medición (v2.4), la interfaz gráfica, el método, los resultados agregados y las huellas | Nada más (es la base del resto) |
 | `investigacion_doc_ccn/` | El anuncio de finalización de contrato por dentro | `fase0_placsp/` |
 | `investigacion_cohortes/` | ¿Es cuestión de tiempo? Cohortes de 2021 y 2022, y validación del clasificador con 60 obras | `investigacion_doc_ccn/` (que genera sus datos) y `fase0_placsp/` |
